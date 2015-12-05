@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-SimpleFormBootstrap::Application.load_tasks
+Visitman::Application.load_tasks
