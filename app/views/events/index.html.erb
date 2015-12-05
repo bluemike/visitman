@@ -1,0 +1,43 @@
+<table class="table table-striped" valign="middle">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Titel</th>
+	<th>Eventdatum von</th>
+	<th>Eventdatum bis</th>
+	<th>Standard-Slotdauer</th>
+    <th>Status</th>
+    <th>Letzte Änderung</th>
+    <th>durch</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @events.each do |event| %>
+     <tr>
+        <td><%= link_to event.id, events_path(event) %></td>
+        <td><%= event.title %></td>
+        <td><%= getNiceDateString(event.is_from_date) %></td>
+        <td><%= getNiceDateString(event.is_to_date) %></td>
+        <td><%= event.default_slot_duration.to_s %></td>
+        <td><b><%= event.getActiveValue(event.active) %></b></td>
+
+        <td><%= getNiceDateString(event.updated_at) %></td>
+        <td><%= changeduser = User.new; changeduser.getFirstnameAndNameString(event.changed_id) %> </td>
+
+        <td><%= link_to 'Anzeigen', event_path(event), :class => 'btn btn-sm btn-info'  %></td>
+        <td><%= link_to 'Ändern', edit_event_path(event) , :class => 'btn btn-sm btn-primary' %></td>
+        <td><%= link_to 'Löschen', event, method: :delete, data: { commit: "Eintrag definitiv löschen", cancel: "Abbrechen", confirm: 'Sind Sie sicher?'} , :class => 'btn btn-sm btn-danger' %></td>
+     </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Neuen Event anlegen', new_event_path, :class => 'btn btn-primary' %>
+
+<p>&nbsp;</p>
+
+<div><%= will_paginate @events, renderer: BootstrapPagination::Rails %><div>

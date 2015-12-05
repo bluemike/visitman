@@ -1,0 +1,22 @@
+<div class="col-md-8">
+  <div class="panel panel-primary">
+    <div class="panel-heading">Schülerdaten anzeigen</div>
+    <div class="panel-body">
+
+      <table class="table table-striped" valign="middle">
+        <tbody>
+        <tr><td><strong>ID:</strong></td><td><%= @student.id %></td></tr>
+        <tr><td><strong>Code:</strong></td><td><%= @student.code %></td></tr>
+        <tr><td><strong>Vorname:</strong></td><td><%= @student.firstname %></td></tr>
+        <tr><td><strong>Nachname:</strong></td><td><%= @student.name %></td></tr>
+        <% tempteam = Team.find(@student.team_id) %>
+        <tr><td><strong>Klasse:</strong></td><td><%= tempteam.title %></td></tr>
+        </tbody>
+      </table>
+
+      <%= link_to 'Ändern', edit_student_path(@student) , :class => 'btn btn-primary' %>
+      <%= link_to 'Zurück', students_path, :class => 'btn btn-info' %>
+
+    </div>
+  </div>
+</div>

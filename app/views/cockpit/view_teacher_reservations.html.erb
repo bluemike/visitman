@@ -1,0 +1,64 @@
+<%= simple_form_for :view_teacher_reservations, url: '/cockpit/view_teacher_reservations_input_changed', remote: true,
+                    wrapper: :horizontal_form,
+                    html: { class: 'form-horizontal' } do |f| %>
+
+    <%= f.input :teacher_id, selected: @teacher_id, collection: @teacher_list, label: false, input_html: { style: 'width: 200px', onchange: 'this.form.submit()' }, required: false  %>
+    <%= f.input :slot_date, selected: @slot_date, collection: @slot_datelist, label: false, input_html: { style: 'width: 200px', onchange: 'this.form.submit()' }, required: false  %>
+    <%= token_tag nil %>
+
+<% end %>
+
+<table class="table table-striped table-bordered" valign="middle">
+
+    <thead>
+    <tr>
+        <th>von</th>
+        <th>bis</th>
+        <th>Reservation</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <% last_to_datetime = nil %>
+    <% @slot_list.each do |slot| %>
+        <% from_datetime = slot.from_time %>
+        <% to_datetime = slot.to_time %>
+        <% if last_to_datetime != nil && last_to_datetime!= from_datetime %>
+            <tr><td colspan="4"></td></tr>
+        <% end %>
+        <% last_to_datetime = to_datetime %>
+        <tr>
+            <td><%= getNiceTimeString(from_datetime) %></td>
+            <td><%= getNiceTimeString(to_datetime) %></td>
+            <% temp_reservation = Reservation.new %>
+            <% reservations = Reservation.where(event_id: getLoginEventId, teacher_id: @teacher_id, slot_id: slot.id) %>
+            <% color_class = temp_reservation.getReservationAvailabilityColor Reservation::RESERVATION_AVAILABILITY_OPEN %>
+            <% student_string = "" %>
+            <% if reservations.length > 0 %>
+                <% reservation = reservations[0] %>
+                <% color_class = temp_reservation.getReservationAvailabilityColor reservation.status %>
+                <% if reservation.student_id != nil %>
+                    <% student = Student.find(reservation.student_id) %>
+                    <% team = Team.find(student.team_id) %>
+                    <% student_string = "%s %s (%s)" % [student.firstname, student.name, team.title] %>
+                    <% color_class = temp_reservation.getReservationAvailabilityColor Reservation::RESERVATION_AVAILABILITY_BOOKED %>
+                <% end %>
+            <% end %>
+            <td class="<%= color_class %>"><strong><%= student_string %></strong></td>
+        </tr>
+    <% end %>
+
+    </tbody>
+
+</table>
+
+<p>&nbsp;</p>
+<%= link_to cockpit_print_teacher_reservations_path, class: 'btn btn-sm btn-primary' do %>
+    <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Seite drucken
+<% end %>
+
+<p>&nbsp;</p>
+<%= link_to cockpit_path, class: 'btn btn-sm btn-primary' do %>
+    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Zurück zur Übersicht
+<% end %>

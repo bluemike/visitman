@@ -1,0 +1,25 @@
+<%= simple_form_for :teacher, url: '/teacher_import/teacher_import',
+                    wrapper: :vertical_form,
+                    as: 'user_vertical',
+                    html: { multipart: true, class: 'form-vertical' },
+                    wrapper_mappings: {
+	                    check_boxes: :horizontal_radio_and_checkboxes,
+	                    radio_buttons: :horizontal_radio_and_checkboxes,
+	                    file: :horizontal_file_input,
+	                    boolean: :horizontal_boolean
+                    } do |f| %>
+
+    <%= f.error_notification %>
+
+    <%= f.input :file, as: :file, label: 'Import-Datei' %>
+
+    <p>&nbsp;</p>
+
+    <%= f.button :submit, 'Lehrer prüfen', name: 'check', class: 'btn btn-primary' %>
+
+<% end %>
+
+<p>&nbsp;</p>
+
+<%= link_to "Lehrer importieren", '/teacher_import/teacher_import', method: :post, :class => 'btn btn-warning' %>
+<%= link_to "Alle bestehenden Lehrer löschen", '/teacher_import/delete_all_teachers', method: :delete, data: { commit: "Alle Einträge definitiv löschen", cancel: "Abbrechen", confirm: 'Sind Sie sicher?'} , :class => 'btn btn-danger' %>

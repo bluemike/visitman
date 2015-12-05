@@ -1,0 +1,31 @@
+<div class="col-md-8">
+
+
+	<h4><strong>Klasse <%= @team_title %></strong></h4>
+    <table class="table table-striped table-bordered" valign="middle">
+
+        <thead>
+        <tr>
+            <th>Lehrkraft</th>
+	        <th>Kurzform</th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+            <% @teacherteams.each do |teacherteam| %>
+                <% teacher = Teacher.find(teacherteam.teacher_id) %>
+                <% firstnamename = "%s %s" % [teacher.firstname, teacher.name] %>
+                <tr><td><%= firstnamename %></td><td><%= teacher.abbreviation %></td></tr>
+            <% end %>
+
+        </tbody>
+
+    </table>
+
+
+    <%= link_to teachman_overview_path, class: 'btn btn-sm btn-primary' do %>
+        <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Zurück zur Übersicht
+    <% end %>
+
+</div>

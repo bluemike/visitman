@@ -1,0 +1,72 @@
+<div class="panel panel-info">
+	<div class="panel-heading">
+	  <strong>Aktuelle Statistik</strong>
+	</div>
+
+	<div class="panel-body">
+
+	    <table class="table table-striped table-bordered" valign="middle">
+
+	        <thead>
+	        <tr>
+	            <th colspan="2">Informationen</th>
+	            <th>Anzahl</th>
+		        <th>in %</th>
+	        </tr>
+	        </thead>
+
+	        <tbody>
+			<tr>
+			    <td colspan="2">Klassen</td>
+			    <td colspan="2"><strong><%= Team.where(event_id: getLoginEventId).count %></strong></td>
+			</tr>
+			<tr>
+			    <td colspan="2">Lehrer</td>
+				<% num_teachers = Teacher.where(event_id: getLoginEventId).count %>
+			    <td colspan="2"><strong><%= num_teachers %></strong></td>
+			</tr>
+			<tr>
+			    <td colspan="2">Schüler</td>
+			    <td colspan="2"><strong><%= Student.where(event_id: getLoginEventId).count %></strong></td>
+			</tr>
+			<tr>
+			    <td colspan="2">Slots</td>
+				<% num_slots = Slot.where(event_id: getLoginEventId).count %>
+			    <td colspan="2"><strong><%= num_slots %></strong></td>
+			</tr>
+			<% max_reservations = num_teachers * num_slots %>
+		    <% num_availabilities = Reservation.where(event_id: getLoginEventId).count %>
+		    <% num_availabilities_available = Reservation.where(event_id: getLoginEventId, status: Reservation::RESERVATION_AVAILABILITY_AVAILABLE).count %>
+		    <% num_availabilities_not_available = Reservation.where(event_id: getLoginEventId, status: Reservation::RESERVATION_AVAILABILITY_NOT_AVAILABLE).count %>
+		    <% num_availabilities_open = (max_reservations - num_availabilities_available - num_availabilities_not_available) %>
+
+			<% max_reservations_percent = "100" %>
+		    <% num_availabilities_available_percent = "n/a" %>
+		    <% num_availabilities_not_available_percent = "n/a" %>
+		    <% num_availabilities_open_percent = "n/a" %>
+			<% if max_reservations != 0 %>
+				<% num_availabilities_available_percent = (100 * num_availabilities_available / max_reservations).to_s %>
+		        <% num_availabilities_not_available_percent = (100 * num_availabilities_not_available / max_reservations).to_s %>
+		        <% num_availabilities_open_percent = (100 * num_availabilities_open / max_reservations).to_s %>
+            <% end %>
+		    <tr><td>Verfügbarkeiten</td><td>maximal</td><td><strong><%= max_reservations %></strong></td><td><strong><%= max_reservations_percent %>%</strong></td></tr>
+            <% temp_reservation = Reservation.new %>
+			<tr><td></td><td class="<%= temp_reservation.getReservationAvailabilityColor Reservation::RESERVATION_AVAILABILITY_OPEN %>">noch offen</td><td><strong><%= num_availabilities_open %></strong></td><td><strong><%= num_availabilities_open_percent %>%</strong></td></tr>
+			<tr><td></td><td class="<%= temp_reservation.getReservationAvailabilityColor Reservation::RESERVATION_AVAILABILITY_AVAILABLE %>">verfügbar</td><td><strong><%= num_availabilities_available %></strong></td><td><strong><%= num_availabilities_available_percent %>%</strong></td></tr>
+			<tr><td></td><td class="<%= temp_reservation.getReservationAvailabilityColor Reservation::RESERVATION_AVAILABILITY_NOT_AVAILABLE %>">nicht verfügbar</td><td><strong><%= num_availabilities_not_available %></strong></td><td><strong><%= num_availabilities_not_available_percent %>%</strong></td></tr>
+		    <% num_reservations = Reservation.where(event_id: getLoginEventId).where.not(student_id: nil).count %>
+		    <% if (max_reservations != 0) && (num_availabilities_available != 0) %>
+		        <% num_reservations_percent = (100 * num_reservations / max_reservations).to_s %>
+				<% num_reservations_effective_percent = (100 * num_reservations / num_availabilities_available).to_s %>
+	        <% else %>
+	            <% num_reservations_percent = "n/a" %>
+	            <% num_reservations_effective_percent = "n/a" %>
+		    <% end %>
+		    <tr><td>Reservationen</td><td class="<%= temp_reservation.getReservationAvailabilityColor Reservation::RESERVATION_AVAILABILITY_BOOKED %>">max. möglich</td><td><strong><%= num_reservations %></strong></td><td><strong><%= num_reservations_percent %>%</strong></td></tr>
+		    <tr><td></td><td class="<%= temp_reservation.getReservationAvailabilityColor Reservation::RESERVATION_AVAILABILITY_BOOKED %>">eff. möglich</td><td><strong><%= num_reservations %></strong></td><td><strong><%= num_reservations_effective_percent %>%</strong></td></tr>
+	        </tbody>
+		</table>
+
+	</div>
+</div>
+

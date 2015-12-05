@@ -1,0 +1,97 @@
+<div class="col-md-8">
+
+    <div class="list-group">
+        <% if checkRegDate %>
+            <a href="<%= teachman_manage_availability_path %>" class="list-group-item">
+        <% else %>
+            <a href="#" class="list-group-item disabled">
+        <% end %>
+	        <table>
+	            <tr>
+		            <td valign="middle">
+		                <% if checkRegDate %>
+		                    <h3><span class="glyphicon glyphicon-circle-arrow-right text-info"></span></h3>
+		                <% else %>
+		                    <h3><span class="glyphicon glyphicon-remove-circle text-danger"></span></h3>
+		                <% end %>
+		            </td>
+		            <td>&nbsp;&nbsp;&nbsp;</td>
+	                <td>
+                        <h4 class="list-group-item-heading">Verfügbarkeit</h4>
+                        <p class="list-group-item-text">Hier gibst du die genauen Zeiträume vor und definierst, wann du zur Verfügung stehst.</p>
+		                <% if !checkRegDate %>
+		                    <span class="text-danger"><strong>Diese Funktion steht aktuell nicht zur Verfügung!</strong></span>
+		                <% end %>
+	                </td>
+	            </tr>
+	        </table>
+        </a>
+        <a href="<%= teachman_view_reservations_path %>" class="list-group-item">
+            <table>
+                <tr>
+                    <td valign="middle">
+                        <h3><span class="glyphicon glyphicon-circle-arrow-right text-info"></span></h3>
+                    </td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td>
+                        <h4 class="list-group-item-heading">Reservation</h4>
+                        <p class="list-group-item-text">Hier kannst du einsehen, wer sich bereits angemeldet hat.</p>
+                    </td>
+                </tr>
+            </table>
+        </a>
+	    <% if getTeachmanTeamTeacher != -1 %>
+            <a href="<%= teachman_view_teamteachers_path %>" class="list-group-item">
+	    <% else %>
+            <a href="#" class="list-group-item disabled">
+		<% end %>
+            <table>
+                <tr>
+                    <td valign="middle">
+                    <% if getTeachmanTeamTeacher != -1 %>
+                        <h3><span class="glyphicon glyphicon-circle-arrow-right text-info"></span></h3>
+                    <% else %>
+                        <h3><span class="glyphicon glyphicon-remove-circle text-danger"></span></h3>
+                    <% end %>
+                    </td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td>
+                        <h4 class="list-group-item-heading">Liste der Lehrkräfte pro Klasse</h4>
+                        <p class="list-group-item-text">Hier kannst du einsehen, welche Lehrkräfte in deiner Klasse unterrichten.</p>
+                        <% if !getTeachmanTeamTeacher == -1 %>
+                            <span class="text-danger"><strong>Diese Funktion ist nur für Klassenlehrkräfte verfügbar!</strong></span>
+                        <% end %>
+
+                    </td>
+                </tr>
+            </table>
+        </a>
+        <% if getTeachmanTeamTeacher != -1 %>
+            <a href="<%= teachman_view_teamstudents_path %>" class="list-group-item">
+        <% else %>
+            <a href="#" class="list-group-item disabled">
+        <% end %>
+        <table>
+            <tr>
+                <td valign="middle">
+                    <% if getTeachmanTeamTeacher != -1 %>
+                        <h3><span class="glyphicon glyphicon-circle-arrow-right text-info"></span></h3>
+                    <% else %>
+                        <h3><span class="glyphicon glyphicon-remove-circle text-danger"></span></h3>
+                    <% end %>
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;</td>
+                <td>
+                    <h4 class="list-group-item-heading">Klassenliste</h4>
+                    <p class="list-group-item-text">Hier kannst du einsehen, welche Schülerinnen und Schüler in deiner Klasse sind.</p>
+                    <% if !getTeachmanTeamTeacher == -1 %>
+                        <span class="text-danger"><strong>Diese Funktion ist nur für Klassenlehrkräfte verfügbar!</strong></span>
+                    <% end %>
+
+                </td>
+            </tr>
+        </table>
+        </a>
+    </div>
+
+</div>

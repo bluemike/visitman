@@ -1,0 +1,27 @@
+<div class="row">
+
+    <div class="col-md-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Verfügbarkeits- und Reservations-Simulator</div>
+            <div class="panel-body">
+
+                 <%= simple_form_for  :reservation_simulator, url: '/reservation_simulator/execute',
+                                     wrapper: :horizontal_form,
+                                     html: { class: 'form-horizontal' } do |f| %>
+
+                    <p>&nbsp;</p>
+
+                    <%= f.input :max_availabilities, selected: @max_availabilities, label: '% - Verfügbarkeiten', collection: (0..100).to_a, input_html: { style: "width: 100px" }, required: false %>
+
+                    <%= f.input :max_reservations, selected: @max_reservations, label: '% - Reservationen', collection: (0..100).to_a, input_html: { style: "width: 100px" }, required: false %>
+
+                    <%= f.button :submit, 'Simulation starten', name: 'simulate_all', class: 'btn btn-warning' %>
+
+                <% end %>
+
+            </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,46 @@
+<div class="col-md-8">
+
+    <div class="list-group">
+        <% if checkRegDate %>
+            <a href="<%= studman_manage_reservations_path %>" class="list-group-item">
+        <% else %>
+            <a href="#" class="list-group-item disabled">
+        <% end %>
+            <table>
+                <tr>
+                    <td valign="middle">
+                        <% if checkRegDate %>
+                            <h3><span class="glyphicon glyphicon-circle-arrow-right text-info"></span></h3>
+                        <% else %>
+                            <h3><span class="glyphicon glyphicon-remove-circle text-danger"></span></h3>
+                        <% end %>
+                    </td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td>
+                        <h4 class="list-group-item-heading">Reservationen</h4>
+                        <p class="list-group-item-text">Hier können die Reservationen bei den einzelnen Lehrkräften vorgenommen werden.</p>
+                        <% if !checkRegDate %>
+                            <span class="text-danger"><strong>Diese Funktion steht aktuell nicht zur Verfügung!</strong></span>
+                        <% end %>
+
+                    </td>
+                </tr>
+            </table>
+        </a>
+        <a href="<%= studman_view_reservations_path %>" class="list-group-item">
+            <table>
+                <tr>
+                    <td valign="middle">
+                        <h3><span class="glyphicon glyphicon-circle-arrow-right text-info"></span></h3>
+                    </td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td>
+                        <h4 class="list-group-item-heading">Besuchsplan</h4>
+                        <p class="list-group-item-text">Hier kann der Besuchsplan eingesehen werden.</p>
+                    </td>
+                </tr>
+            </table>
+        </a>
+    </div>
+
+</div>

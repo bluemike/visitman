@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= favicon_link_tag 'favicon.ico' %>
+  <title>Visit Manager</title>
+  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag "application", media: "all" %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+
+<%= render 'shared/navigation' %>
+
+  <div class="container master-container">
+
+	<p>&nbsp;</p>
+
+    <% if isLogin %>
+
+      <div class='alert alert-info fade in' data-alert='alert'>
+        <table cellspacing="5" cellpadding="5">
+          <tr><td>Benutzer:</td><td>&nbsp;</td><td><strong><%= getLoginFirstNameString %> <%= getLoginNameString %></strong></td></tr>
+          <tr><td>Rolle:</td><td>&nbsp;</td><td><%= getLoginRoleTypeValue %></td></tr>
+          <tr><td><strong>Anlass:</strong></td><td>&nbsp;</td><td><h4><span class="label label-primary"><%= getLoginEventString %></span></h4></td></tr>
+        </table>
+      </div>
+
+    <% end %>
+
+    <% if flash.notice %>
+      <div class="alert alert-success fade in" data-alert="alert">
+        <a class="close" data-dismiss='alert' href="#">×</a>
+        <p><%= notice %></p>
+      </div>
+    <% end %>
+
+    <% if flash.alert %>
+        <div class="alert alert-danger fade in" data-alert="alert">
+          <a class="close" data-dismiss='alert' href="#">×</a>
+          <p><%= alert %></p>
+        </div>
+    <% end %>
+
+    <%= yield %>
+
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Copyright 2014 - Visitman</p>
+      <ul class="footer-links">
+        <li><a href="http://www.schulefrick.ch">Schule Frick</a></li>
+        <li class="muted">·</li>
+        <li><a href="http://frick.ch">Gemeinde Frick</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

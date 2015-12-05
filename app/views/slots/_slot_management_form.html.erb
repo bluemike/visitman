@@ -1,0 +1,26 @@
+<%= simple_form_for :slot, url: '/slots/create_slot_group',
+                    wrapper: :horizontal_form,
+                    as: 'user_horizontal',
+                    html: { class: 'form-horizontal' },
+                    wrapper_mappings: {
+	                    check_boxes: :horizontal_radio_and_checkboxes,
+	                    radio_buttons: :horizontal_radio_and_checkboxes,
+	                    file: :horizontal_file_input,
+	                    boolean: :horizontal_boolean
+                    } do |f| %>
+
+    <%= f.error_notification %>
+
+    <%= f.input :slot_start_datetime, as: :datetime_picker, label: 'Zeit ab', input_html: { value: @slot_start_String }%>
+
+    <%= f.input :slot_end_datetime, as: :datetime_picker, label: 'Zeit bis', input_html: { value: @slot_end_String }%>
+
+    <%= f.input :slot_duration, selected: @slot_duration_String, label: 'Slot-Dauer', collection: (10..60).step(5).to_a, input_html: { style: "width: 100px" } %>
+
+    <%= f.button :submit, 'Neue Slots generieren', class: 'btn btn-primary' %>
+
+<% end %>
+
+<p>&nbsp;</p>
+
+<%= link_to "Alle bestehenden Slots löschen", '/slots/delete_all_slots', method: :delete, data: { commit: "Alle Einträge definitiv löschen", cancel: "Abbrechen", confirm: 'Sind Sie sicher?'}, :class => 'btn btn-danger' %>

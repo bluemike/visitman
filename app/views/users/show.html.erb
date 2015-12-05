@@ -1,0 +1,30 @@
+<div class="col-md-8">
+  <div class="panel panel-primary">
+    <div class="panel-heading">Benutzerdaten anzeigen</div>
+    <div class="panel-body">
+
+      <table class="table table-striped" valign="middle">
+        <tbody>
+        <tr><td><strong>ID:</strong></td><td><%= @user.id %></td></tr>
+        <tr><td><strong>Email:</strong></td><td><%= @user.email %></td></tr>
+        <tr><td><strong>Passwort:</strong></td><td><%= @user.password %></td></tr>
+        <tr><td><strong>Name:</strong></td><td><%= @user.name %></td></tr>
+        <tr><td><strong>Vorname:</strong></td><td><%= @user.firstname %></td></tr>
+        <tr><td><strong>Strasse / Nr.:</strong></td><td><%= @user.address %></td></tr>
+        <tr><td><strong>Postleitzahl:</strong></td><td><%= @user.zip %></td></tr>
+        <tr><td><strong>Ort:</strong></td><td><%= @user.place %></td></tr>
+        <tr><td><strong>Land:</strong></td><td><%= @user.country %></td></tr>
+        <tr><td><strong>Mobile:</strong></td><td><%= @user.mobile %></td></tr>
+        <tr><td><strong>Geschlecht:</strong></td><td><%= @user.getSexValue(@user.sex) %></td></tr>
+        <tr><td><strong>Rolle:</strong></td><td><%= @user.getRoleTypeValue(@user.role_type) %></td></tr>
+        <tr><td><strong>Status:</strong></td><td><b><%= @user.getActiveValue(@user.active) %></b></td></tr>
+
+        </tbody>
+      </table>
+
+      <%= link_to 'Ändern', edit_user_path(@user) , :class => 'btn btn-primary' %>
+      <%= link_to 'Zurück', users_path, :class => 'btn btn-info' %>
+
+    </div>
+  </div>
+</div>

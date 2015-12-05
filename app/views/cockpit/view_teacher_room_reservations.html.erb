@@ -1,0 +1,58 @@
+<%= simple_form_for :view_teacher_room_reservations, url: '/cockpit/view_teacher_room_reservations_slot_date_changed', remote: true,
+                    wrapper: :horizontal_form,
+                    html: { class: 'form-horizontal' } do |f| %>
+
+    <%= f.input :slot_date, selected: @slot_date, collection: @slot_datelist, label: false, input_html: { style: 'width: 200px', onchange: 'this.form.submit()' }, required: false  %>
+    <%= token_tag nil %>
+
+<% end %>
+
+<div class="table-scrollable">
+
+    <table class="table table-striped table-bordered" valign="middle">
+
+        <thead>
+        <tr>
+            <th>Lehrkraft</th>
+            <th>Zimmer</th>
+	        <th>Reservationen</th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+	        <% @teachers.each do |teacher| %>
+	            <% firstnamename = "%s %s" % [teacher.firstname, teacher.name] %>
+	            <tr>
+	                <td><strong><%= firstnamename %> (<%= teacher.abbreviation %>)</strong></td>
+		            <td><strong><%= teacher.room_title %></strong></td>
+		            <% numreservations = 0 %>
+	                <% @slot_list.each do |slot| %>
+	                    <% reservations = Reservation.where(event_id: getLoginEventId, slot_id: slot.id, teacher_id: teacher.id) %>
+	                    <% if reservations.length > 0 %>
+				            <% if reservations[0].student_id != nil %>
+			                    <% numreservations += 1 %>
+				            <% end %>
+	                    <% end %>
+			        <% end %>
+		            <% tempreservation = Reservation.new %>
+		            <% if numreservations > 0 %>
+	                    <td class="<%= tempreservation.getReservationAvailabilityColor Reservation::RESERVATION_AVAILABILITY_BOOKED %>">
+			                <strong><%= numreservations %> Reservation(en)</strong>
+			            </td>
+			        <% else %>
+	                    <td class="<%= tempreservation.getReservationAvailabilityColor Reservation::RESERVATION_AVAILABILITY_NOT_AVAILABLE %>">
+	                        <strong>keine Reservationen</strong>
+	                    </td>
+			        <% end %>
+				</tr>
+            <% end %>
+        </tbody>
+
+    </table>
+</div>
+
+<p>&nbsp;</p>
+<%= link_to cockpit_path, class: 'btn btn-sm btn-primary' do %>
+    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Zurück zur Übersicht
+<% end %>

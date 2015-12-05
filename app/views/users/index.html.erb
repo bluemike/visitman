@@ -1,0 +1,45 @@
+<table class="table table-striped" valign="middle">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Email</th>
+    <th>Name</th>
+    <th>Vorname</th>
+    <th>Rolle</th>
+    <th>Status</th>
+    <th>Letzte Änderung</th>
+    <th>durch</th>
+    <th>Letztes Login</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @users.each do |user| %>
+     <tr>
+        <td><%= link_to user.id, user_path(user) %></td>
+        <td><%= user.email %></td>
+        <td><%= user.name %></td>
+        <td><%= user.firstname %></td>
+        <td><%= user.getRoleTypeValue(user.role_type) %></td>
+        <td><b><%= user.getActiveValue(user.active) %></b></td>
+
+        <td><%= getNiceDateString(user.updated_at) %></td>
+        <td><%= user.getFirstnameAndNameString(user.changed_id) %> </td>
+        <td><%= getNiceDateString(user.last_login_at) %></td>
+
+        <td><%= link_to 'Anzeigen', user_path(user), :class => 'btn btn-sm btn-info'  %></td>
+        <td><%= link_to 'Ändern', edit_user_path(user) , :class => 'btn btn-sm btn-primary' %></td>
+        <td><%= link_to 'Löschen', user, method: :delete, data: { commit: "Eintrag definitiv löschen", cancel: "Abbrechen", confirm: 'Sind Sie sicher?'} , :class => 'btn btn-sm btn-danger' %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Neuen Benutzer anlegen', new_user_path, :class => 'btn btn-primary' %>
+
+<p>&nbsp;</p>
+
+<div><%= will_paginate @users, renderer: BootstrapPagination::Rails %><div>

@@ -1,0 +1,83 @@
+<%= simple_form_for :manage_availability, url: '/teachman/manage_availability_slot_date_changed', remote: true,
+                    wrapper: :horizontal_form,
+                    html: { class: 'form-horizontal' } do |f| %>
+
+    <%= f.input :slot_date, selected: @slot_date, collection: @slot_datelist, label: false, input_html: { style: 'width: 200px', onchange: 'this.form.submit()' }, required: false  %>
+    <%= token_tag nil %>
+
+<% end %>
+
+<%= simple_form_for :manage_availability, url: '/teachman/manage_availability_availability_changed',
+                        wrapper: :horizontal_form,
+                        html: { class: 'form-horizontal' } do |f| %>
+    <div class="control-group">
+        <%= f.button :submit, 'Lehrkraft ist an diesem Tag immer verfügbar', name: 'all_available', class: 'btn btn-sm btn-success', :wrapper_html => { :class => "inline_field_wrapper" } %>
+        <%= f.button :submit, 'Lehrkraft ist an diesem Tag NICHT verfügbar', name: 'all_not_available', class: 'btn btn-sm btn-danger', :wrapper_html => { :class => "inline_field_wrapper" } %>
+    </div>
+
+<% end %>
+
+<p>&nbsp;</p>
+
+<table class="table table-bordered" valign="middle">
+    <tr>
+        <td>Legende</td>
+        <td class="active">Verfügbarkeit offen</td>
+        <td class="success">Lehrkraft verfügbar</td>
+        <td class="danger">Lehrkraft <strong>NICHT</strong> verfügbar</td>
+    </tr>
+</table>
+
+<table class="table table-striped table-bordered" valign="middle">
+
+    <thead>
+    <tr>
+        <th>von</th>
+        <th>bis</th>
+	    <th>Aktueller Status</th>
+	    <th>Aktion</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <% last_to_datetime = nil %>
+    <% @slot_list.each do |slot| %>
+        <% from_datetime = slot.from_time %>
+        <% to_datetime = slot.to_time %>
+        <% if last_to_datetime != nil && last_to_datetime!= from_datetime %>
+            <tr><td colspan="4"></td></tr>
+        <% end %>
+	    <% last_to_datetime = to_datetime %>
+        <tr>
+            <td><%= getNiceTimeString(from_datetime) %></td>
+            <td><%= getNiceTimeString(to_datetime) %></td>
+	        <% temp_reservation = Reservation.new %>
+	        <% availability_status = temp_reservation.getReservationAvailability getTeachmanLoginEventId, getTeachmanLoginId, slot.id %>
+	        <% color_class = temp_reservation.getReservationAvailabilityColor availability_status %>
+	        <td class="<%= color_class %>"></td>
+            <td>
+                <% if availability_status != Reservation::RESERVATION_AVAILABILITY_AVAILABLE %>
+                    <% link_url = "/teachman/manage_availability_availability_changed?slot_id=%d&new_availability=%d" % [slot.id, Reservation::RESERVATION_AVAILABILITY_AVAILABLE] %>
+                    <%= link_to "verfügbar", link_url, class: 'btn btn-sm btn-success' %>
+                <% end %>
+                <% if availability_status != Reservation::RESERVATION_AVAILABILITY_NOT_AVAILABLE %>
+                    <% link_url = "/teachman/manage_availability_availability_changed?slot_id=%d&new_availability=%d" % [slot.id, Reservation::RESERVATION_AVAILABILITY_NOT_AVAILABLE] %>
+                    <%= link_to "NICHT verfügbar", link_url, class: 'btn btn-sm btn-danger' %>
+                <% end %>
+                <% if availability_status != Reservation::RESERVATION_AVAILABILITY_OPEN %>
+                    <% link_url = "/teachman/manage_availability_availability_changed?slot_id=%d&new_availability=%d" % [slot.id, Reservation::RESERVATION_AVAILABILITY_OPEN] %>
+                    <%= link_to "offen", link_url, class: 'btn btn-sm btn-default' %>
+                <% end %>
+            </td>
+        </tr>
+    <% end %>
+
+    </tbody>
+
+</table>
+
+
+<%= link_to teachman_overview_path, class: 'btn btn-sm btn-primary' do %>
+    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Zurück zur Übersicht
+<% end %>

@@ -1,0 +1,39 @@
+<%= simple_form_for @event,
+                    wrapper: :horizontal_form,
+                    html: { class: 'form-horizontal' },
+                    wrapper_mappings: {
+                            check_boxes: :horizontal_radio_and_checkboxes,
+                            radio_buttons: :horizontal_radio_and_checkboxes,
+                            file: :horizontal_file_input,
+                            boolean: :horizontal_boolean
+                    } do |f| %>
+
+    <%= f.error_notification %>
+
+    <%= f.input :title, label: 'Titel', placeholder: 'Titel des Events', input_html: { maxlength: 255 } %>
+
+    <%= f.input :description, label: 'Beschreibung', placeholder: 'Beschreibung', as: :text, input_html: { cols: 5, rows: 3, maxlength: 255 } %>
+
+    <%= f.input :is_from_date, label: 'Eventdatum von', as: :datetime_picker %>
+
+    <%= f.input :is_to_date, label: 'Eventdatum bis', as: :datetime_picker %>
+
+    <%= f.input :teacher_reg_from_date, label: 'Lehrkraft-Registration von', as: :datetime_picker %>
+
+    <%= f.input :teacher_reg_to_date, label: 'Lehrkraft-Registration bis', as: :datetime_picker %>
+
+    <%= f.input :student_reg_from_date, label: 'Schüler-Registrion von', as: :datetime_picker %>
+
+    <%= f.input :student_reg_to_date, label: 'Schüler-Registration bis', as: :datetime_picker %>
+
+    <%= f.input :default_slot_duration, label: 'Standard-Slotdauer', collection: (10..60).step(5).to_a, input_html: { style: "width: 100px" } %>
+
+    <%= f.input :active, label: 'Status', as: :radio_buttons, collection: Event::ACTIVE_VALUES %>
+
+    <%= f.button :submit, 'Speichern', class: 'btn btn-primary' %>
+
+    <%= link_to "Abbrechen", :back, :class => 'btn btn-info' %>
+
+<% end %>
+
+

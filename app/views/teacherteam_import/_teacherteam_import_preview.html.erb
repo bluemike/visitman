@@ -1,0 +1,31 @@
+<table class="table table-striped table-bordered" valign="middle">
+
+    <thead>
+    <tr>
+	<th>Kurzform</th>
+	<th>Klasse</th>
+    <th>Status</th>
+    </tr>
+    </thead>
+
+	<tbody>
+
+	<% if $teacherteam_import_preview_list != nil %>
+	    <% $teacherteam_import_preview_list.each do |preview_entry| %>
+	        <tr>
+	            <td><%= preview_entry[:abbreviation] %></td>
+	            <td><%= preview_entry[:team_title] %></td>
+	            <% if preview_entry[:status] %>
+	                <td><span class="label label-success"><span class="glyphicon glyphicon-ok"></span></span></td>
+	            <% else %>
+	                <td><span class="label label-danger"><%= preview_entry[:message].to_s %></span></td>
+	            <% end %>
+	        </tr>
+	    <% end %>
+	<% end %>
+
+	</tbody>
+
+
+</table>
+

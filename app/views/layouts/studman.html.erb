@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%= favicon_link_tag 'favicon.ico' %>
+	<title>Visit Manager - Matching Scheduling Needs</title>
+	<%= javascript_include_tag "application" %>
+    <%= stylesheet_link_tag "application", media: "all" %>
+	<%= csrf_meta_tags %>
+</head>
+
+<body>
+
+	<div class="container master-container">
+
+	    <div class="col-md-12">
+
+	        <div class="row">
+
+	            <div class="col-md-3">
+	                <table>
+		                <tr><td><%= image_tag "schoolfrick.png" %></td></tr>
+	                </table>
+	            </div>
+
+	            <div class="col-md-9">
+	                <table>
+	                    <tr>
+	                        <td cellpadding="10" valign="top"></td>
+	                        <% if isStudmanLogin %>
+	                            <td><div class="well">
+	                                <table width="100%">
+	                                    <tr><td>Schüler/in:</td><td>&nbsp;</td></td><td><strong><%= getStudmanLoginFirstnameNameString %></strong></td>
+	                                        <td rowspan="3" width="200px">&nbsp;</td>
+	                                        <td rowspan="3" valign="top">
+	                                            <%= link_to studman_logout_path, class: "btn btn-sm btn-primary" do %>
+	                                                Abmelden <span class="glyphicon glyphicon-log-out"></span>
+	                                            <% end %>
+	                                        </td>
+	                                    </tr>
+	                                    <tr><td>Klasse:</td><td></td><td><%= getStudmanTeamString %></td></tr>
+	                                    <tr><td>Anlass:</td><td>&nbsp;</td><td><strong><%= getStudmanLoginEventString %></strong></td></tr>
+	                                </table>
+	                            </div></td>
+	                        <% else %>
+	                            <td><div class="well"><strong>Bitte melden Sie sich als ersten Schritt untenstehend an.</strong></div></td>
+	                        <% end %>
+	                    </tr>
+	                </table>
+	            </div>
+
+	        </div>
+
+	        <% if flash.notice %>
+		        <div class="alert alert-success fade in" data-alert="alert">
+	                <a class="close" data-dismiss='alert' href="#">×</a>
+	                <p><%= notice %></p>
+	            </div>
+	        <% end %>
+
+	        <% if flash.alert %>
+	            <div class="alert alert-danger fade in" data-alert="alert">
+	                <a class="close" data-dismiss='alert' href="#">×</a>
+	                <p><%= alert %></p>
+	            </div>
+	        <% end %>
+
+			<p>&nbsp;</p>
+
+	        <%= yield %>
+	    </div>
+	</div>
+
+	<footer class="footer">
+        <div class="container">
+            <p>Copyright 2014/2015 - Visitman</p>
+            <ul class="footer-links">
+                <li><a href="http://www.schulefrick.ch">Schule Frick</a></li>
+                <li class="muted">·</li>
+                <li><a href="http://frick.ch">Gemeinde Frick</a></li>
+            </ul>
+        </div>
+	</footer>
+
+</body>
+
+</html>

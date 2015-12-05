@@ -1,0 +1,998 @@
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-05 07:01:37 +0100
+
+RuntimeError (Cannot load `Rails.application.database_configuration`:
+Could not load database configuration. No such file - ):
+  railties (4.1.13) lib/rails/application/configuration.rb:105:in `database_configuration'
+  activerecord (4.1.13) lib/active_record/railtie.rb:126:in `block (2 levels) in <class:Railtie>'
+  activesupport (4.1.13) lib/active_support/lazy_load_hooks.rb:38:in `instance_eval'
+  activesupport (4.1.13) lib/active_support/lazy_load_hooks.rb:38:in `execute_hook'
+  activesupport (4.1.13) lib/active_support/lazy_load_hooks.rb:45:in `block in run_load_hooks'
+  activesupport (4.1.13) lib/active_support/lazy_load_hooks.rb:44:in `each'
+  activesupport (4.1.13) lib/active_support/lazy_load_hooks.rb:44:in `run_load_hooks'
+  activerecord (4.1.13) lib/active_record/base.rb:326:in `<module:ActiveRecord>'
+  activerecord (4.1.13) lib/active_record/base.rb:23:in `<top (required)>'
+  activerecord (4.1.13) lib/active_record/migration.rb:388:in `check_pending!'
+  activerecord (4.1.13) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.13) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.13) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.13) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.13) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.13) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.13) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.13) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.13) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.13) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.13) lib/rails/engine.rb:514:in `call'
+  railties (4.1.13) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.8) lib/eventmachine.rb:193:in `run_machine'
+  eventmachine (1.0.8) lib/eventmachine.rb:193:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.5.5) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.5) lib/rack/server.rb:264:in `start'
+  railties (4.1.13) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:76:in `tap'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.13) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:4:in `require'
+  bin/rails:4:in `<top (required)>'
+  -e:1:in `load'
+  -e:1:in `<main>'
+
+
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.3ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (27.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-05 07:01:37 +0100
+
+RuntimeError (Cannot load `Rails.application.database_configuration`:
+Could not load database configuration. No such file - ):
+  railties (4.1.13) lib/rails/application/configuration.rb:105:in `database_configuration'
+  activerecord (4.1.13) lib/active_record/railtie.rb:126:in `block (2 levels) in <class:Railtie>'
+  activesupport (4.1.13) lib/active_support/lazy_load_hooks.rb:38:in `instance_eval'
+  activesupport (4.1.13) lib/active_support/lazy_load_hooks.rb:38:in `execute_hook'
+  activesupport (4.1.13) lib/active_support/lazy_load_hooks.rb:45:in `block in run_load_hooks'
+  activesupport (4.1.13) lib/active_support/lazy_load_hooks.rb:44:in `each'
+  activesupport (4.1.13) lib/active_support/lazy_load_hooks.rb:44:in `run_load_hooks'
+  activerecord (4.1.13) lib/active_record/base.rb:326:in `<module:ActiveRecord>'
+  activerecord (4.1.13) lib/active_record/base.rb:23:in `<top (required)>'
+  activerecord (4.1.13) lib/active_record/migration.rb:388:in `check_pending!'
+  activerecord (4.1.13) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.13) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.13) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.13) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.13) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.13) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.13) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.13) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.13) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.13) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.13) lib/rails/engine.rb:514:in `call'
+  railties (4.1.13) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.8) lib/eventmachine.rb:193:in `run_machine'
+  eventmachine (1.0.8) lib/eventmachine.rb:193:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.5.5) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.5) lib/rack/server.rb:264:in `start'
+  railties (4.1.13) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:76:in `tap'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.13) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:4:in `require'
+  bin/rails:4:in `<top (required)>'
+  -e:1:in `load'
+  -e:1:in `<main>'
+
+
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.4ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (25.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-05 07:04:00 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.1.13) lib/active_record/migration.rb:389:in `check_pending!'
+  activerecord (4.1.13) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.13) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.13) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.13) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.13) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.13) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.13) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.13) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.13) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.13) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.13) lib/rails/engine.rb:514:in `call'
+  railties (4.1.13) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.8) lib/eventmachine.rb:193:in `run_machine'
+  eventmachine (1.0.8) lib/eventmachine.rb:193:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.5.5) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.5) lib/rack/server.rb:264:in `start'
+  railties (4.1.13) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:76:in `tap'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.13) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:4:in `require'
+  bin/rails:4:in `<top (required)>'
+  -e:1:in `load'
+  -e:1:in `<main>'
+
+
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.4ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.6ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.5ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (25.4ms)
+  [1m[36m (11.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.4ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateArticles (20110911173356)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "articles" ("id" serial primary key, "name" character varying(255), "content" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20110911173356"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to AddContentTypeToArticle (20110911180155)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.9ms)[0m  [1mALTER TABLE "articles" ADD COLUMN "content_type" character varying(255)[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20110911180155"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Migrating to AddDisabledTextToArticle (20110911190941)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "articles" ADD COLUMN "disabled_text" character varying(255)[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20110911190941"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Migrating to CreateComments (20110925042740)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "name" character varying(255) NOT NULL, "body" text NOT NULL, "article_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.5ms)[0m  CREATE  INDEX  "index_comments_on_article_id" ON "comments"  ("article_id")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20110925042740"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to AddPublishedToArticles (20111214200432)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "articles" ADD COLUMN "published" boolean
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20111214200432"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+Migrating to AddCategoryToArticles (20120122122728)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "articles" ADD COLUMN "category" character varying(255)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20120122122728"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+Migrating to AddSecretToArticles (20120122122909)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "articles" ADD COLUMN "secret" boolean
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20120122122909"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+Migrating to AddDraftToArticles (20120122130820)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "articles" ADD COLUMN "draft" boolean
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20120122130820"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+Migrating to DestroyArticleAndComments (20140331185458)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.5ms)[0m  DROP TABLE "articles"
+  [1m[36m (0.9ms)[0m  [1mDROP TABLE "comments"[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140331185458"]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUsers (20140331205449)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "email" character varying(255), "password" character varying(255), "file" character varying(255), "active" boolean, "choices" character varying(255), "sex" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140331205449"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-05 07:05:30 +0100
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.1.13) lib/active_record/migration.rb:389:in `check_pending!'
+  activerecord (4.1.13) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.13) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.13) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.13) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.13) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.13) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.13) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.13) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.13) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.13) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.13) lib/rails/engine.rb:514:in `call'
+  railties (4.1.13) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.8) lib/eventmachine.rb:193:in `run_machine'
+  eventmachine (1.0.8) lib/eventmachine.rb:193:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.5.5) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.5) lib/rack/server.rb:264:in `start'
+  railties (4.1.13) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:76:in `tap'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.13) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:4:in `require'
+  bin/rails:4:in `<top (required)>'
+  -e:1:in `load'
+  -e:1:in `<main>'
+
+
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.3ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.6ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.4ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (24.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-05 07:05:55 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ExamplesController#index as HTML
+  Rendered examples/_basic_example_tb.html.erb (0.8ms)
+  Rendered examples/_basic_example_sf.html.erb (37.7ms)
+  Rendered examples/_inline_form_tb.html.erb (0.6ms)
+  Rendered examples/_inline_form_sf.html.erb (4.5ms)
+  Rendered examples/_horizontal_form_tb.html.erb (0.6ms)
+  Rendered examples/_horizontal_form_sf.html.erb (7.4ms)
+  Rendered examples/index.html.erb within layouts/application (56.8ms)
+Completed 200 OK in 1128ms (Views: 1124.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-05 07:05:56 +0100
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-12-05 07:05:56 +0100
+
+
+Started GET "/assets/rainbow.js?body=1" for 127.0.0.1 at 2015-12-05 07:05:56 +0100
+
+
+Started GET "/assets/ruby.js?body=1" for 127.0.0.1 at 2015-12-05 07:05:56 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-05 07:05:56 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-05 07:05:56 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-05 07:05:56 +0100
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-05 07:15:29 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.1.13) lib/active_record/migration.rb:389:in `check_pending!'
+  activerecord (4.1.13) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.13) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.13) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.13) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.13) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.13) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.13) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.13) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.13) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.13) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.13) lib/rails/engine.rb:514:in `call'
+  railties (4.1.13) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.8) lib/eventmachine.rb:193:in `run_machine'
+  eventmachine (1.0.8) lib/eventmachine.rb:193:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.5.5) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.5) lib/rack/server.rb:264:in `start'
+  railties (4.1.13) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:76:in `tap'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.13) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:4:in `require'
+  bin/rails:4:in `<top (required)>'
+  -e:1:in `load'
+  -e:1:in `<main>'
+
+
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.3ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.6ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.5ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (25.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddSessionsTable (20140830133245)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (11.9ms)[0m  [1mCREATE TABLE "sessions" ("id" serial primary key, "session_id" character varying(255) NOT NULL, "data" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX  "index_sessions_on_session_id" ON "sessions"  ("session_id")
+  [1m[36m (0.6ms)[0m  [1mCREATE  INDEX  "index_sessions_on_updated_at" ON "sessions"  ("updated_at")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140830133245"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to DropAndCreateUsers (20140914153000)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (1.6ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "email" character varying(255), "password" character varying(255), "active" boolean, "role_type" integer, "address" character varying(255), "string" character varying(255), "place" character varying(255), "zip" character varying(255), "sex" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+PG::DuplicateTable: ERROR:  relation "users" already exists
+: CREATE TABLE "users" ("id" serial primary key, "email" character varying(255), "password" character varying(255), "active" boolean, "role_type" integer, "address" character varying(255), "string" character varying(255), "place" character varying(255), "zip" character varying(255), "sex" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DropAndCreateUsers (20140914153000)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (10.4ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "email" character varying(255), "password" character varying(255), "active" boolean, "role_type" integer, "address" character varying(255), "string" character varying(255), "place" character varying(255), "zip" character varying(255), "sex" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+PG::DuplicateTable: ERROR:  relation "users" already exists
+: CREATE TABLE "users" ("id" serial primary key, "email" character varying(255), "password" character varying(255), "active" boolean, "role_type" integer, "address" character varying(255), "string" character varying(255), "place" character varying(255), "zip" character varying(255), "sex" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DropAndCreateUsers (20140914153000)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (9.7ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "email" character varying(255), "password" character varying(255), "active" boolean, "role_type" integer, "address" character varying(255), "string" character varying(255), "place" character varying(255), "zip" character varying(255), "sex" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+PG::DuplicateTable: ERROR:  relation "users" already exists
+: CREATE TABLE "users" ("id" serial primary key, "email" character varying(255), "password" character varying(255), "active" boolean, "role_type" integer, "address" character varying(255), "string" character varying(255), "place" character varying(255), "zip" character varying(255), "sex" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (9.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddSessionsTable (20140830133245)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (3.2ms)[0m  [1mCREATE TABLE "sessions" ("id" serial primary key, "session_id" character varying(255) NOT NULL, "data" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.6ms)[0m  CREATE UNIQUE INDEX  "index_sessions_on_session_id" ON "sessions"  ("session_id")
+  [1m[36m (0.7ms)[0m  [1mCREATE  INDEX  "index_sessions_on_updated_at" ON "sessions"  ("updated_at")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140830133245"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to DropAndCreateUsers (20140914153000)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.7ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "email" character varying(255), "password" character varying(255), "active" boolean, "role_type" integer, "address" character varying(255), "string" character varying(255), "place" character varying(255), "zip" character varying(255), "sex" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140914153000"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to AddNameFirstNameToUsers (20140914153001)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "users" ADD COLUMN "name" character varying(255)[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "users" ADD COLUMN "firstname" character varying(255)
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140914153001"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+Migrating to AddAttributesToUser (20140915182644)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "users" ADD COLUMN "changed_id" integer
+  [1m[36m (0.6ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140915182644"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Migrating to AddAdditionalAttributesToUser (20140915193941)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "users" ADD COLUMN "country" character varying(255)[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD COLUMN "mobile" character varying(255)
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD COLUMN "last_login_at" timestamp[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140915193941"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Migrating to AddEventsTable (20140915195716)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (2.8ms)[0m  [1mCREATE TABLE "events" ("id" serial primary key, "title" character varying(255), "description" character varying(255), "active" boolean, "is_from_date" timestamp, "is_to_date" timestamp, "reg_from_date" timestamp, "reg_to_date" timestamp, "info_from_date" timestamp, "info_to_date" timestamp, "default_slot_duration" integer, "changed_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140915195716"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to AddRoomsTable (20140921133206)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "rooms" ("id" serial primary key, "title" character varying(255), "description" character varying(255), "changed_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "rooms" ADD COLUMN "event_id" integer NOT NULL
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140921133206"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to AddSlotsTable (20140927092806)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.0ms)[0m  CREATE TABLE "slots" ("id" serial primary key, "slot_date" timestamp, "from_time" timestamp, "to_time" timestamp, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "slots" ADD COLUMN "event_id" integer NOT NULL[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140927092806"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to AddTeamsTable (20141122104300)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "teams" ("id" serial primary key, "title" character varying(255), "description" character varying(255), "changed_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "teams" ADD COLUMN "event_id" integer NOT NULL
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141122104300"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to AddStudentsTable (20141122104411)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.6ms)[0m  CREATE TABLE "students" ("id" serial primary key, "name" character varying(255), "firstname" character varying(255), "code" character varying(255), "email" character varying(255), "changed_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "students" ADD COLUMN "team_id" integer NOT NULL[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "students" ADD COLUMN "event_id" integer NOT NULL
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141122104411"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to AddTeachersTable (20141122104422)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.5ms)[0m  CREATE TABLE "teachers" ("id" serial primary key, "name" character varying(255), "firstname" character varying(255), "abbreviation" character varying(255), "code" character varying(255), "email" character varying(255), "changed_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "teachers" ADD COLUMN "event_id" integer NOT NULL[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "teachers" ADD COLUMN "team_id" integer
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141122104422"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to AddTeacherTeamTable (20141125210855)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.7ms)[0m  CREATE TABLE "teacherteams" ("id" serial primary key, "changed_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "teacherteams" ADD COLUMN "event_id" integer NOT NULL[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "teacherteams" ADD COLUMN "teacher_id" integer NOT NULL
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "teacherteams" ADD COLUMN "team_id" integer NOT NULL[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141125210855"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Migrating to AddReservationTable (20141126192154)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE "reservations" ("id" serial primary key, "changed_id" integer, "status" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "reservations" ADD COLUMN "event_id" integer NOT NULL
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "reservations" ADD COLUMN "teacher_id" integer NOT NULL[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "reservations" ADD COLUMN "slot_id" integer NOT NULL
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "reservations" ADD COLUMN "student_id" integer[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141126192154"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to ChangeRoomStructure (20150114181318)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (1.3ms)[0m  [1mDROP TABLE "rooms"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "teachers" ADD COLUMN "room_title" character varying(255)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150114181318"]]
+  [1m[35m (1.0ms)[0m  COMMIT
+Migrating to ChangeEventAttributes (20150114191104)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "events" DROP "reg_from_date"
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "events" DROP "reg_to_date"[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "events" DROP "info_from_date"
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "events" DROP "info_to_date"[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "events" ADD COLUMN "teacher_reg_from_date" timestamp
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "events" ADD COLUMN "teacher_reg_to_date" timestamp[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "events" ADD COLUMN "student_reg_from_date" timestamp
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "events" ADD COLUMN "student_reg_to_date" timestamp[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150114191104"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Migrating to AddIndices (20150117101441)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mCREATE  INDEX  "index_teacherteams_on_event_id" ON "teacherteams"  ("event_id")[0m
+  [1m[35m (0.5ms)[0m  CREATE  INDEX  "index_teacherteams_on_teacher_id" ON "teacherteams"  ("teacher_id")
+  [1m[36m (0.5ms)[0m  [1mCREATE  INDEX  "index_teacherteams_on_team_id" ON "teacherteams"  ("team_id")[0m
+  [1m[35m (0.7ms)[0m  CREATE  INDEX  "index_reservations_on_event_id" ON "reservations"  ("event_id")
+  [1m[36m (0.6ms)[0m  [1mCREATE  INDEX  "index_reservations_on_teacher_id" ON "reservations"  ("teacher_id")[0m
+  [1m[35m (0.5ms)[0m  CREATE  INDEX  "index_reservations_on_slot_id" ON "reservations"  ("slot_id")
+  [1m[36m (0.5ms)[0m  [1mCREATE  INDEX  "index_reservations_on_student_id" ON "reservations"  ("student_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150117101441"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-05 07:18:17 +0100
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.1.13) lib/active_record/migration.rb:389:in `check_pending!'
+  activerecord (4.1.13) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.13) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.13) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.13) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.13) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.13) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.13) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.13) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.13) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.13) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.13) lib/rails/engine.rb:514:in `call'
+  railties (4.1.13) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.8) lib/eventmachine.rb:193:in `run_machine'
+  eventmachine (1.0.8) lib/eventmachine.rb:193:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.5.5) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.5) lib/rack/server.rb:264:in `start'
+  railties (4.1.13) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:76:in `tap'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.13) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:4:in `require'
+  bin/rails:4:in `<top (required)>'
+  -e:1:in `load'
+  -e:1:in `<main>'
+
+
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.3ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.6ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.4ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (23.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-05 07:18:21 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.1.13) lib/active_record/migration.rb:389:in `check_pending!'
+  activerecord (4.1.13) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.13) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.13) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.13) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.13) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.13) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.13) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.13) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.13) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.13) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.13) lib/rails/engine.rb:514:in `call'
+  railties (4.1.13) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.8) lib/eventmachine.rb:193:in `run_machine'
+  eventmachine (1.0.8) lib/eventmachine.rb:193:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.5.5) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.5) lib/rack/server.rb:264:in `start'
+  railties (4.1.13) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:76:in `tap'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.13) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:4:in `require'
+  bin/rails:4:in `<top (required)>'
+  -e:1:in `load'
+  -e:1:in `<main>'
+
+
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.3ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.5ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.5ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (24.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-05 07:18:38 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActionController::RoutingError (uninitialized constant ExamplesController):
+  activesupport (4.1.13) lib/active_support/inflector/methods.rb:238:in `const_get'
+  activesupport (4.1.13) lib/active_support/inflector/methods.rb:238:in `block in constantize'
+  activesupport (4.1.13) lib/active_support/inflector/methods.rb:236:in `each'
+  activesupport (4.1.13) lib/active_support/inflector/methods.rb:236:in `inject'
+  activesupport (4.1.13) lib/active_support/inflector/methods.rb:236:in `constantize'
+  actionpack (4.1.13) lib/action_dispatch/routing/route_set.rb:78:in `controller_reference'
+  actionpack (4.1.13) lib/action_dispatch/routing/route_set.rb:68:in `controller'
+  actionpack (4.1.13) lib/action_dispatch/routing/route_set.rb:46:in `call'
+  actionpack (4.1.13) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.13) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.13) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.13) lib/action_dispatch/routing/route_set.rb:692:in `call'
+  rack (1.5.5) lib/rack/etag.rb:23:in `call'
+  rack (1.5.5) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.5) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/cookies.rb:562:in `call'
+  activerecord (4.1.13) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.13) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.13) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.13) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.13) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.13) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.13) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.13) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.13) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.13) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.13) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.13) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.13) lib/rails/engine.rb:514:in `call'
+  railties (4.1.13) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.8) lib/eventmachine.rb:193:in `run_machine'
+  eventmachine (1.0.8) lib/eventmachine.rb:193:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.5.5) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.5) lib/rack/server.rb:264:in `start'
+  railties (4.1.13) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:76:in `tap'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.13) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:4:in `require'
+  bin/rails:4:in `<top (required)>'
+  -e:1:in `load'
+  -e:1:in `<main>'
+
+
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.6ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.5ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.1ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (32.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-05 07:19:43 +0100
+Processing by CockpitController#index as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 6ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2015-12-05 07:19:43 +0100
+Processing by LoginController#login as HTML
+  [1m[35mEvent Load (0.8ms)[0m  SELECT "events".* FROM "events"  WHERE (active=true)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "events".* FROM "events"  WHERE (active=true)[0m
+  Rendered login/_login_form.erb (24.8ms)
+  Rendered login/login.html.erb within layouts/application (25.6ms)
+  Rendered shared/_navigation.html.erb (0.7ms)
+Completed 200 OK in 48ms (Views: 47.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/javascripts/application.js" for 127.0.0.1 at 2015-12-05 07:19:43 +0100
+
+ActionController::RoutingError (No route matches [GET] "/javascripts/application.js"):
+  actionpack (4.1.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.13) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.13) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.13) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.13) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.13) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.13) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.13) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.13) lib/rails/engine.rb:514:in `call'
+  railties (4.1.13) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.8) lib/eventmachine.rb:193:in `run_machine'
+  eventmachine (1.0.8) lib/eventmachine.rb:193:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.5.5) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.5) lib/rack/server.rb:264:in `start'
+  railties (4.1.13) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:76:in `tap'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.13) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:4:in `require'
+  bin/rails:4:in `<top (required)>'
+  -e:1:in `load'
+  -e:1:in `<main>'
+
+
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.7ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.1ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.8ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (84.4ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at 2015-12-05 07:19:43 +0100
+
+ActionController::RoutingError (No route matches [GET] "/stylesheets/application.css"):
+  actionpack (4.1.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.13) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.13) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.13) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.13) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.13) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.13) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.13) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.13) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.13) lib/rails/engine.rb:514:in `call'
+  railties (4.1.13) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.8) lib/eventmachine.rb:193:in `run_machine'
+  eventmachine (1.0.8) lib/eventmachine.rb:193:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.5.5) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.5) lib/rack/server.rb:264:in `start'
+  railties (4.1.13) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:76:in `tap'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.13) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.13) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:4:in `require'
+  bin/rails:4:in `<top (required)>'
+  -e:1:in `load'
+  -e:1:in `<main>'
+
+
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.6ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.4ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.8ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (84.8ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2015-12-05 07:20:19 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by LoginController#login as HTML
+  [1m[35mEvent Load (0.7ms)[0m  SELECT "events".* FROM "events"  WHERE (active=true)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "events".* FROM "events"  WHERE (active=true)[0m
+  Rendered login/_login_form.erb (24.5ms)
+  Rendered login/login.html.erb within layouts/application (26.5ms)
+  Rendered shared/_navigation.html.erb (0.6ms)
+Completed 200 OK in 74ms (Views: 68.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-05 07:20:19 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-05 07:20:19 +0100
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-12-05 07:20:19 +0100
+
+
+Started GET "/login" for 127.0.0.1 at 2015-12-05 07:26:08 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by LoginController#login as HTML
+  [1m[35mEvent Load (0.7ms)[0m  SELECT "events".* FROM "events"  WHERE (active=true)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "events".* FROM "events"  WHERE (active=true)[0m
+  Rendered login/_login_form.erb (34.7ms)
+  Rendered login/login.html.erb within layouts/application (36.9ms)
+  Rendered shared/_navigation.html.erb (0.7ms)
+Completed 200 OK in 88ms (Views: 79.9ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-05 07:26:08 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-05 07:26:08 +0100
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-12-05 07:26:08 +0100
+
+
+Started POST "/login/login" for 127.0.0.1 at 2015-12-05 07:26:15 +0100
+Processing by LoginController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k+cCusWbMR1WSQ90E7E4lnZrm4GC3rNDzpw7kjM2C10=", "login"=>{"loginEmail"=>"mike.franz@bluewin.ch", "loginPassword"=>"[FILTERED]", "loginevent_id"=>"1"}, "commit"=>"Anmelden"}
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."email" = 'mike.franz@bluewin.ch' LIMIT 1
+  [1m[36mSQL (5.2ms)[0m  [1mUPDATE "users" SET "last_login_at" = '2015-12-05 06:26:15.164952' WHERE "users"."id" = 1[0m
+Redirected to http://localhost:3000/cockpit
+Completed 302 Found in 26ms (ActiveRecord: 9.4ms)
+
+
+Started GET "/cockpit" for 127.0.0.1 at 2015-12-05 07:26:15 +0100
+Processing by CockpitController#index as HTML
+  [1m[35mEvent Load (0.3ms)[0m  SELECT  "events".* FROM "events"  WHERE "events"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "teams"  WHERE "teams"."event_id" = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "events".* FROM "events"  WHERE "events"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "teachers"  WHERE "teachers"."event_id" = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "events".* FROM "events"  WHERE "events"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "students"  WHERE "students"."event_id" = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "events".* FROM "events"  WHERE "events"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "slots"  WHERE "slots"."event_id" = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "events".* FROM "events"  WHERE "events"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "reservations"  WHERE "reservations"."event_id" = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "events".* FROM "events"  WHERE "events"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "reservations"  WHERE "reservations"."event_id" = 1 AND "reservations"."status" = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "events".* FROM "events"  WHERE "events"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "reservations"  WHERE "reservations"."event_id" = 1 AND "reservations"."status" = -1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "events".* FROM "events"  WHERE "events"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "reservations"  WHERE "reservations"."event_id" = 1 AND ("reservations"."student_id" IS NOT NULL)[0m
+  Rendered cockpit/_view_statistics.html.erb (42.0ms)
+  Rendered cockpit/index.html.erb within layouts/application (43.2ms)
+  Rendered shared/_navigation.html.erb (0.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "events".* FROM "events"  WHERE "events"."id" = $1 LIMIT 1  [["id", "1"]]
+Completed 200 OK in 70ms (Views: 57.5ms | ActiveRecord: 12.4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-05 07:26:15 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-05 07:26:15 +0100
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-12-05 07:26:15 +0100
+
+
+Started GET "/users" for 127.0.0.1 at 2015-12-05 07:26:39 +0100
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+NameError (uninitialized constant UsersController::ROWSperPAGE):
+  app/controllers/users_controller.rb:12:in `index'
+
+
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.4ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.7ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (25.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-12-05 07:30:01 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users"   ORDER BY id
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `paginate' for #<User::ActiveRecord_Relation:0x007ff044159870>):
+  app/controllers/users_controller.rb:12:in `index'
+
+
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.4ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/mikefranz/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.1.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (26.2ms)

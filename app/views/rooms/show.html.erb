@@ -1,0 +1,21 @@
+<div class="col-md-8">
+  <div class="panel panel-primary">
+    <div class="panel-heading">Raumdaten anzeigen</div>
+    <div class="panel-body">
+
+      <p id="notice"><%= notice %></p>
+
+      <table class="table table-striped" valign="middle">
+        <tbody>
+        <tr><td><strong>ID:</strong></td><td><%= @room.id %></td></tr>
+        <tr><td><strong>Titel:</strong></td><td><%= @room.title %></td></tr>
+        <tr><td><strong>Beschreibung:</strong></td><td><%= @room.description %></td></tr>
+        </tbody>
+      </table>
+
+      <%= link_to 'Ändern', edit_room_path(@room) , :class => 'btn btn-primary' %>
+      <%= link_to 'Zurück', rooms_path, :class => 'btn btn-info' %>
+
+    </div>
+  </div>
+</div>

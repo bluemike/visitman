@@ -1,0 +1,22 @@
+<div class="col-md-8">
+  <div class="panel panel-primary">
+    <div class="panel-heading">Lehrerdaten anzeigen</div>
+    <div class="panel-body">
+
+      <table class="table table-striped" valign="middle">
+        <tbody>
+        <tr><td><strong>ID:</strong></td><td><%= @teacher.id %></td></tr>
+        <tr><td><strong>Code:</strong></td><td><%= @teacher.code %></td></tr>
+        <tr><td><strong>Kurzform:</strong></td><td><%= @teacher.abbreviation %></td></tr>
+        <tr><td><strong>Vorname:</strong></td><td><%= @teacher.firstname %></td></tr>
+        <tr><td><strong>Nachname:</strong></td><td><%= @teacher.name %></td></tr>
+        <tr><td><strong>Raum:</strong></td><td><%= @teacher.room_title %></td></tr>        </tbody>
+        <tr><td><strong>Email:</strong></td><td><%= @teacher.email %></td></tr>        </tbody>
+      </table>
+
+      <%= link_to 'Ändern', edit_teacher_path(@teacher) , :class => 'btn btn-primary' %>
+      <%= link_to 'Zurück', teachers_path, :class => 'btn btn-info' %>
+
+    </div>
+  </div>
+</div>

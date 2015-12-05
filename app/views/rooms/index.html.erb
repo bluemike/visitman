@@ -1,0 +1,37 @@
+<table class="table table-striped" valign="middle">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Titel</th>
+    <th>Beschreibung</th>
+    <th>Letzte Änderung</th>
+    <th>durch</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @rooms.each do |room| %>
+     <tr>
+        <td><%= link_to room.id, room_path(room) %></td>
+        <td><%= room.title %></td>
+        <td><%= room.description %></td>
+
+        <td><%= getNiceDateString(room.updated_at) %></td>
+        <td><%= changeduser = User.new; changeduser.getFirstnameAndNameString(room.changed_id) %> </td>
+
+        <td><%= link_to 'Anzeigen', room_path(room), :class => 'btn btn-sm btn-info'  %></td>
+        <td><%= link_to 'Ändern', edit_room_path(room) , :class => 'btn btn-sm btn-primary' %></td>
+        <td><%= link_to 'Löschen', room, method: :delete, data: { commit: "Eintrag definitiv löschen", cancel: "Abbrechen", confirm: 'Sind Sie sicher?'} , :class => 'btn btn-sm btn-danger' %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Neuen Raum anlegen', new_room_path, :class => 'btn btn-primary' %>
+
+<p>&nbsp;</p>
+
+<div><%= will_paginate @rooms, renderer: BootstrapPagination::Rails %><div>

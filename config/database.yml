@@ -1,0 +1,16 @@
+development:
+  host: localhost
+  adapter: postgresql
+  encoding: unicode
+  database: visitman
+  pool: 5
+  username: postgres
+  password: gurus
+
+test:
+   adapter: postgresql
+   encoding: unicode
+   database: visitman
+   pool: 5
+   username: postgres
+   password: gurus

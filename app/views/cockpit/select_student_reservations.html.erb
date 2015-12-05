@@ -1,0 +1,50 @@
+<%= simple_form_for :select_student_reservations, url: '/cockpit/select_student_reservations',
+                    wrapper: :horizontal_form,
+                    html: { class: 'form-horizontal' } do |f| %>
+
+
+    <%= f.input :firstname, label: 'Vorname', placeholder: 'Vorname', input_html: { value: @search_firstname, maxlength: 20 }, required: false %>
+
+    <%= f.input :name, label: 'Name', placeholder: 'Name', input_html: { maxlength: 20, value: @search_name }, required: false %>
+
+    <%= f.input :team_id, selected: @search_team_id, collection: getTeamCollectionbyEventId(getLoginEventId), include_blank: true, label: 'Klasse', required: false %>
+
+    <%= f.button :submit, 'Suchen', class: 'btn btn-primary' %>
+
+<% end %>
+
+<p>&nbsp;</p>
+
+<% if @student_list.length != 0 %>
+
+<table class="table table-striped" valign="middle">
+<thead>
+<tr>
+    <th>Code</th>
+    <th>Vorname</th>
+    <th>Name</th>
+    <th>Klasse</th>
+    <th>&nbsp;</th>
+</tr>
+</thead>
+
+<tbody>
+<% @student_list.each do |student| %>
+    <tr>
+        <td><%= student.code %></td>
+        <td><%= student.firstname %></td>
+        <td><%= student.name %></td>
+        <th><%= student.team.title %></th>
+	    <% view_student_reservations_link = "view_student_reservations/%d" % [student.id]%>
+        <td><%= link_to 'Reservationen', view_student_reservations_link, :class => 'btn btn-sm btn-info'  %></td>
+    </tr>
+<% end %>
+</tbody>
+</table>
+
+<% end %>
+
+<p>&nbsp;</p>
+<%= link_to cockpit_path, class: 'btn btn-sm btn-primary' do %>
+    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Zurück zur Übersicht
+<% end %>

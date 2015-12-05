@@ -1,0 +1,19 @@
+<div class="col-md-8">
+  <div class="panel panel-primary">
+    <div class="panel-heading">Schülerdaten anzeigen</div>
+    <div class="panel-body">
+
+      <table class="table table-striped" valign="middle">
+        <tbody>
+        <tr><td><strong>ID:</strong></td><td><%= @team.id %></td></tr>
+        <tr><td><strong>Titel:</strong></td><td><%= @team.title %></td></tr>
+        <tr><td><strong>Beschreibung:</strong></td><td><%= @team.description %></td></tr>
+        </tbody>
+      </table>
+
+      <%= link_to 'Ändern', edit_team_path(@team) , :class => 'btn btn-primary' %>
+      <%= link_to 'Zurück', teams_path, :class => 'btn btn-info' %>
+
+    </div>
+  </div>
+</div>

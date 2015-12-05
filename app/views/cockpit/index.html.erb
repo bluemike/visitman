@@ -1,0 +1,81 @@
+<div class="row">
+    <div class="col-md-6">
+
+        <div class="list-group">
+            <a href="<%= cockpit_view_availabilities_path %>" class="list-group-item">
+                <table>
+                    <tr>
+                        <td valign="middle">
+                            <h3><span class="glyphicon glyphicon-circle-arrow-right text-info"></span></h3>
+                        </td>
+                        <td>&nbsp;&nbsp;&nbsp;</td>
+                        <td>
+                            <h4 class="list-group-item-heading">Verfügbarkeiten</h4>
+                            <p class="list-group-item-text">Hier können die Verfügbarkeiten aller Lehrkräfte eingesehen werden.</p>
+                        </td>
+                    </tr>
+                </table>
+            </a>
+            <a href="<%= cockpit_view_reservations_path %>" class="list-group-item">
+                <table>
+                    <tr>
+                        <td valign="middle">
+                            <h3><span class="glyphicon glyphicon-circle-arrow-right text-info"></span></h3>
+                        </td>
+                        <td>&nbsp;&nbsp;&nbsp;</td>
+                        <td>
+                            <h4 class="list-group-item-heading">Besuchsplan</h4>
+                            <p class="list-group-item-text">Hier kann der Besuchsplan aller Lehrkräfte überprüft werden.</p>
+                        </td>
+                    </tr>
+                </table>
+            </a>
+            <a href="<%= cockpit_view_teacher_reservations_path %>" class="list-group-item">
+                <table>
+                    <tr>
+                        <td valign="middle">
+                            <h3><span class="glyphicon glyphicon-circle-arrow-right text-info"></span></h3>
+                        </td>
+                        <td>&nbsp;&nbsp;&nbsp;</td>
+                        <td>
+                            <h4 class="list-group-item-heading">Lehrer-Besuchsplan</h4>
+                            <p class="list-group-item-text">Hier kann der Besuchsplan einzelner Lehrkräften eingesehen werden.</p>
+                        </td>
+                    </tr>
+                </table>
+            </a>
+            <a href="<%= cockpit_select_student_reservations_path %>" class="list-group-item">
+                <table>
+                    <tr>
+                        <td valign="middle">
+                            <h3><span class="glyphicon glyphicon-circle-arrow-right text-info"></span></h3>
+                        </td>
+                        <td>&nbsp;&nbsp;&nbsp;</td>
+                        <td>
+                            <h4 class="list-group-item-heading">Schülerinnen-/Schüler-Besuchsplan</h4>
+                            <p class="list-group-item-text">Hier kann der Besuchsplan einzelner Schülerinnen und Schüler eingesehen werden.</p>
+                        </td>
+                    </tr>
+                </table>
+            </a>
+            <a href="<%= cockpit_view_teacher_room_reservations_path %>" class="list-group-item">
+                <table>
+                    <tr>
+                        <td valign="middle">
+                            <h3><span class="glyphicon glyphicon-circle-arrow-right text-info"></span></h3>
+                        </td>
+                        <td>&nbsp;&nbsp;&nbsp;</td>
+                        <td>
+                            <h4 class="list-group-item-heading">Zimmer-Belegungsplan</h4>
+                            <p class="list-group-item-text">Hier kann der Zimmer-Belegungsplan eingesehen werden.</p>
+                        </td>
+                    </tr>
+                </table>
+            </a>
+
+        </div>
+	</div>
+	<div class="col-md-6">
+	    <%= render partial: 'view_statistics' %>
+	</div>
+</div>

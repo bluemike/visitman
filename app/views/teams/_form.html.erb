@@ -1,0 +1,25 @@
+<%= simple_form_for @team,
+                    wrapper: :horizontal_form,
+                    html: { class: 'form-horizontal' },
+                    wrapper_mappings: {
+                            check_boxes: :horizontal_radio_and_checkboxes,
+                            radio_buttons: :horizontal_radio_and_checkboxes,
+                            file: :horizontal_file_input,
+                            boolean: :horizontal_boolean
+                    } do |f| %>
+
+    <!-- check for error pagination (over multiple errors) later -->
+
+    <%= f.error_notification %>
+
+    <%= f.input :title, label: 'Titel', placeholder: 'Titel', input_html: { maxlength: 255 } %>
+
+    <%= f.input :description, label: 'Beschreibung', placeholder: 'Beschreibung', input_html: { maxlength: 255 } %>
+
+    <%= f.button :submit, 'Speichern', class: 'btn btn-primary' %>
+
+    <%= link_to "Abbrechen", :back, :class => 'btn btn-info' %>
+
+<% end %>
+
+

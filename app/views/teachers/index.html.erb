@@ -1,0 +1,45 @@
+<table class="table table-striped" valign="middle">
+  <thead>
+  <tr>
+    <th>ID</th>
+	<th>Code</th>
+	<th>Kurzform</th>
+    <th>Vorname</th>
+    <th>Name</th>
+	<th>Raum</th>
+    <th>Email</th>
+	<th>Klassenlehrkraft</th>
+	<th>Letzte Änderung</th>
+    <th>durch</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @teachers.each do |teacher| %>
+     <tr>
+        <td><%= link_to teacher.id, teacher_path(teacher) %></td>
+        <td><%= teacher.code %></td>
+	    <td><%= teacher.abbreviation %></td>
+	    <td><%= teacher.firstname %></td>
+        <td><%= teacher.name %></td>
+	    <td><%= teacher.room_title %></td>
+        <td><%= teacher.email %></th>
+	    <td><%= teacher.getTeamTitle %></td>
+        <td><%= getNiceDateString(teacher.updated_at) %></td>
+        <td><%= changeduser = User.new; changeduser.getFirstnameAndNameString(teacher.changed_id) %></td>
+        <td><%= link_to 'Anzeigen', teacher_path(teacher), :class => 'btn btn-sm btn-info'  %></td>
+        <td><%= link_to 'Ändern', edit_teacher_path(teacher) , :class => 'btn btn-sm btn-primary' %></td>
+        <td><%= link_to 'Löschen', teacher, method: :delete, data: { commit: "Eintrag definitiv löschen", cancel: "Abbrechen", confirm: 'Sind Sie sicher?'} , :class => 'btn btn-sm btn-danger' %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Neuen Lehrer anlegen', new_teacher_path, :class => 'btn btn-primary' %>
+
+<p>&nbsp;</p>
+
+<div><%= will_paginate @teachers, renderer: BootstrapPagination::Rails %><div>

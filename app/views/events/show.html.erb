@@ -1,0 +1,27 @@
+<div class="col-md-8">
+  <div class="panel panel-primary">
+    <div class="panel-heading">Eventdaten anzeigen</div>
+    <div class="panel-body">
+
+      <table class="table table-striped" valign="middle">
+        <tbody>
+	        <tr><td><strong>ID:</strong></td><td><%= @event.id %></td></tr>
+	        <tr><td><strong>Titel:</strong></td><td><%= @event.title %></td></tr>
+	        <tr><td><strong>Beschreibung:</strong></td><td><%= @event.description %></td></tr>
+	        <tr><td><strong>Eventdatum von:</strong></td><td><b><%= getNiceDateString(@event.is_from_date) %></b></td></tr>
+	        <tr><td><strong>Eventdatum bis:</strong></td><td><b><%= getNiceDateString(@event.is_to_date) %></b></td></tr>
+	        <tr><td><strong>Lehrer-Registration von:</strong></td><td><b><%= getNiceDateString(@event.teacher_reg_from_date) %></b></td></tr>
+	        <tr><td><strong>Lehrer-Registration bis:</strong></td><td><b><%= getNiceDateString(@event.teacher_reg_to_date) %></b></td></tr>
+	        <tr><td><strong>Schüler-Registration von:</strong></td><td><b><%= getNiceDateString(@event.student_reg_from_date) %></b></td></tr>
+	        <tr><td><strong>Schüler-Registration bis:</strong></td><td><b><%= getNiceDateString(@event.student_reg_to_date) %></b></td></tr>
+	        <tr><td><strong>Standard-Slotdauer:</strong></td><td><b><%= @event.default_slot_duration.to_s %></b></td></tr>
+	        <tr><td><strong>Status:</strong></td><td><b><%= @event.getActiveValue(@event.active) %></b></td></tr>
+        </tbody>
+      </table>
+
+      <%= link_to 'Ändern', edit_event_path(@event) , :class => 'btn btn-primary' %>
+      <%= link_to 'Zurück', events_path, :class => 'btn btn-info' %>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<%= simple_form_for :student_export, url: '/student_export/student_export',
+                    wrapper: :vertical_form,
+                    as: 'user_vertical',
+                    html: { multipart: true, class: 'form-vertical' },
+                    wrapper_mappings: {
+	                    check_boxes: :horizontal_radio_and_checkboxes,
+	                    radio_buttons: :horizontal_radio_and_checkboxes,
+	                    file: :horizontal_file_input,
+	                    boolean: :horizontal_boolean
+                    } do |f| %>
+
+    <%= f.button :submit, 'Schüler exportieren', name: 'export', class: 'btn btn-primary' %>
+
+<% end %>
+
+<p>&nbsp;</p>

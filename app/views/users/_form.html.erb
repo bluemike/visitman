@@ -1,0 +1,45 @@
+<%= simple_form_for @user,
+                    wrapper: :horizontal_form,
+                    html: { class: 'form-horizontal' },
+                    wrapper_mappings: {
+                            check_boxes: :horizontal_radio_and_checkboxes,
+                            radio_buttons: :horizontal_radio_and_checkboxes,
+                            file: :horizontal_file_input,
+                            boolean: :horizontal_boolean
+                    } do |f| %>
+
+    <!-- check for error pagination (over multiple errors) later -->
+
+    <%= f.error_notification %>
+
+    <%= f.input :email, label: 'Email', placeholder: 'Email', input_html: { maxlength: 255 } %>
+
+    <%= f.input :password, label: 'Passwort', placeholder: 'Passwort', input_html: { value: @user.password , type: "text" } %>
+
+    <%= f.input :name, label: 'Name', placeholder: 'Name', input_html: { maxlength: 255 } %>
+
+    <%= f.input :firstname, label: 'Vorname', placeholder: 'Vorname', input_html: { maxlength: 255 } %>
+
+    <%= f.input :address, label: 'Strasse / Nr.', placeholder: 'Strasse / Nr.', input_html: { maxlength: 255 } %>
+
+    <%= f.input :zip, label: 'Postleitzahl', placeholder: '#####', input_html: { maxlength: 255 } %>
+
+    <%= f.input :place, label: 'Ort', placeholder: 'Ort', input_html: { maxlength: 255 } %>
+
+    <%= f.input :country, label: 'Land', placeholder: 'Land', :as => :string, input_html: { maxlength: 255 } %>
+
+    <%= f.input :mobile, label: 'Mobile', placeholder: 'Mobile', input_html: { maxlength: 255 } %>
+
+    <%= f.input :sex, label: 'Geschlecht', as: :radio_buttons, collection: User::SEX_VALUES %>
+
+    <%= f.input :role_type, label: 'Rolle', collection: User::ROLE_TYPE_VALUES %>
+
+    <%= f.input :active, label: 'Status', as: :radio_buttons, collection: User::ACTIVE_VALUES %>
+
+    <%= f.button :submit, 'Speichern', class: 'btn btn-primary' %>
+
+    <%= link_to "Abbrechen", :back, :class => 'btn btn-info' %>
+
+<% end %>
+
+

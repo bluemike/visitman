@@ -1,0 +1,13 @@
+<%= simple_form_for :login, url: '/login/login' do |f| %>
+
+  <%= f.error_notification %>
+
+  <%= f.input :loginEmail, label: 'Email', placeholder: 'Email', hint: 'Hier muss die Email-Adresse des Benutzers eingegeben werden!' %>
+
+  <%= f.input :loginPassword, label: 'Passwort', input_html: {:type => "password"}, placeholder: 'Passwort', hint: 'Hier muss das Passwort eingegeben werden!' %>
+
+  <%= f.input :loginevent_id, collection: getEventCollectionbyStatus(true), include_blank: false, label: 'Event', hint: 'Hier muss der entsprechende Event ausgewählt werden!'%>
+
+  <%= f.button :submit, 'Anmelden', label:'', class: 'btn btn-primary' %>
+
+<% end %>
