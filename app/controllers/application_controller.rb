@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 	# force_ssl if: :ssl_configured?
 
-	TIMEOUTforLOGIN = 300 
+	TIMEOUTforLOGIN = 300
 
 	helper_method :ConvertToDate, :ConvertToDateString, :getNiceDateString, :getNiceDateonlyString, :getNiceTimeString
 	helper_method :checkLogin, :isLogin, :getLoginUserId, :getLoginNameString, :getLoginFirstNameString, :getLoginRoleType, :getLoginRoleTypeValue
