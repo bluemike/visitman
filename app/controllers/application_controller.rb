@@ -217,92 +217,92 @@ class ApplicationController < ActionController::Base
 	end
 
 	def checkLogin (email, password)
-        loginuser = User.find_by email: email
-        if loginuser!=nil && loginuser.password == password
-            return loginuser
-        end
-        return nil
+		loginuser = User.find_by email: email
+		if loginuser!=nil && loginuser.password == password
+			return loginuser
+		end
+		return nil
 	end
 
-    def isLogin
-        if session[:user_id] != nil
-            return true
-        end
-        return false
+	def isLogin
+		if session[:user_id] != nil
+			return true
+		end
+		return false
 	end
 
 	def getLoginUserId
-        if isLogin
-            return session[:user_id]
-        end
-        return "n/a"
-    end
+		if isLogin
+			return session[:user_id]
+		end
+		return "n/a"
+	end
 
-    def getLoginNameString
-        if isLogin
-            return session[:user_name]
-        end
-        return "n/a"
+	def getLoginNameString
+		if isLogin
+			return session[:user_name]
+		end
+		return "n/a"
 	end
 
 	def getLoginFirstNameString
-        if isLogin
-            return session[:user_firstname]
-        end
-        return "n/a"
+		if isLogin
+			return session[:user_firstname]
+		end
+		return "n/a"
 	end
 
-    def getLoginRoleType
-        if isLogin
-            return session[:user_role_type]
-        end
-        return 0
-    end
+	def getLoginRoleType
+		if isLogin
+			return session[:user_role_type]
+		end
+		return 0
+	end
 
 	def getLoginRoleTypeValue
-        if isLogin
-            newuser = User.new
-        return newuser.getRoleTypeValue(session[:user_role_type])
-        end
-        return "n/a"
-    end
+		if isLogin
+			newuser = User.new
+			return newuser.getRoleTypeValue(session[:user_role_type])
+		end
+		return "n/a"
+	end
 
 	def isLoginRoleType (reference_role_type)
-        if isLogin
-            if session[:user_role_type] == reference_role_type
-                return true
-            end
-        end
-        return false
-    end
+		if isLogin
+			if session[:user_role_type] == reference_role_type
+				return true
+			end
+		end
+		return false
+	end
 
 	def selectedEvent
-        if isLogin
-            if session[:event_id] != nil
-                return true
-            end
-        end
-        return false
+		if isLogin
+			if session[:event_id] != nil
+				return true
+			end
+		end
+		return false
 	end
 
 	def getLoginEventId
-        if isLogin
-            if session[:event_id] != nil
-                loginevent = Event.find(session[:event_id])
-                return loginevent.id
-            end
-        end
-        return -1
-    end
+		if isLogin
+			if session[:event_id] != nil
+				loginevent = Event.find(session[:event_id])
+				return loginevent.id
+			end
+		end
+		return -1
+	end
 
 	def getLoginEventString
-        if isLogin
-            if session[:event_id] != nil
-                loginevent = Event.find(session[:event_id])
-                return loginevent.title
-            end
-        end
-        return "n/a"
+		if isLogin
+			if session[:event_id] != nil
+				loginevent = Event.find(session[:event_id])
+				return loginevent.title
+			end
+		end
+		return "n/a"
 	end
 
 	def getPreviousLoginValue
@@ -310,35 +310,35 @@ class ApplicationController < ActionController::Base
 			if session[:previous_login] != nil
 				return session[:previous_login]
 			end
-        end
-        return Time.now
-    end
+		end
+		return Time.now
+	end
 
 	def getEventCollectionbyStatus(value)
-        return Event.where("active=%s",value).all
-    end
+		return Event.where("active=%s", value).all
+	end
 
 	def getTeamCollectionbyEventId(event_id)
-		return Team.where("event_id=%d",event_id).all
+		return Team.where("event_id=%d", event_id).all.order(title: :asc)
 	end
 
 	def getTeacherCollectionbyEventId(event_id)
-		teachers = Teacher.where("event_id=%d",event_id).order(abbreviation: :asc)
+		teachers = Teacher.where("event_id=%d", event_id).order(abbreviation: :asc)
 		teacher_list = []
 		teachers.each do |teacher|
 			teacher_string = "%s %s (%s)" % [teacher.firstname, teacher.name, teacher.abbreviation]
-			teacher_entry = [teacher_string,teacher.id]
+			teacher_entry = [teacher_string, teacher.id]
 			teacher_list << teacher_entry
 		end
 		return teacher_list
 	end
 
-		def displayPDF eventString, dateString, titleString, dataArray, colorArray, widthArray
+	def displayPDF eventString, dateString, titleString, dataArray, colorArray, widthArray
 
 		pdf = Prawn::Document.new(:page_size => 'A4', :page_layout => :portrait)
 
-		pdf.image "#{Rails.root}/app/assets/images/schoolfrick.png", at: [0,780]
-		pdf.draw_text eventString, size: 24, style: :bold, at: [250,720]
+		pdf.image "#{Rails.root}/app/assets/images/schoolfrick.png", at: [0, 780]
+		pdf.draw_text eventString, size: 24, style: :bold, at: [250, 720]
 
 		pdf.move_down 80
 		pdf.text dateString, size: 16, style: :bold
@@ -351,7 +351,7 @@ class ApplicationController < ActionController::Base
 			style(row(0), font_style: :bold)
 
 			i = 0
-			while i < row_length  do
+			while i < row_length do
 				if i == 0
 					style(row(i), background_color: "FFFFFF")
 				else
@@ -400,7 +400,7 @@ class ApplicationController < ActionController::Base
 		colorArray = []
 		widthArray = []
 
-		header_entry = ["von","bis","Reservation"]
+		header_entry = ["von", "bis", "Reservation"]
 		dataArray << header_entry
 		colorArray << [nil, nil, nil]
 		widthArray << [nil, nil, 300]
@@ -463,7 +463,7 @@ class ApplicationController < ActionController::Base
 		colorArray = []
 		widthArray = []
 
-		header_entry = ["von","bis","Reservation","Zimmer"]
+		header_entry = ["von", "bis", "Reservation", "Zimmer"]
 		dataArray << header_entry
 		colorArray << [nil, nil, nil, nil]
 		widthArray << [nil, nil, 300, 100]
@@ -529,7 +529,7 @@ class ApplicationController < ActionController::Base
 		colorArray = []
 		widthArray = []
 
-		header_entry = ["Lehrkraft","Kurzform"]
+		header_entry = ["Lehrkraft", "Kurzform"]
 		dataArray << header_entry
 		colorArray << [nil, nil]
 		widthArray << [200, 100]
@@ -573,7 +573,7 @@ class ApplicationController < ActionController::Base
 		colorArray = []
 		widthArray = []
 
-		header_entry = ["Vorname","Nachname"]
+		header_entry = ["Vorname", "Nachname"]
 		dataArray << header_entry
 		colorArray << [nil, nil]
 		widthArray << [200, 200]

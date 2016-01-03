@@ -1,15 +1,15 @@
 class TimePickerInput < DatePickerInput
-  private
+	private
 
-  def display_pattern
-    I18n.t('timepicker.dformat', default: '%R')
-  end
+	def display_pattern
+		I18n.t('timepicker.dformat', default: '%R')
+	end
 
-  def picker_pattern
-    I18n.t('timepicker.pformat', default: 'HH:mm')
-  end
+	def picker_pattern
+		I18n.t('timepicker.pformat', default: 'HH:mm')
+	end
 
-  def date_options
-    date_options_base
-  end
+	def date_options
+		date_options_base
+	end
 end

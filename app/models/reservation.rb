@@ -1,6 +1,6 @@
 class Reservation < ActiveRecord::Base
 
-	RESERVATION_AVAILABILITY_VALUES = [["nicht verfügbar",-1],["offen",0],["verfügbar",1]]
+	RESERVATION_AVAILABILITY_VALUES = [["nicht verfügbar", -1], ["offen", 0], ["verfügbar", 1]]
 
 	RESERVATION_AVAILABILITY_NOT_AVAILABLE = -1
 	RESERVATION_AVAILABILITY_OPEN = 0

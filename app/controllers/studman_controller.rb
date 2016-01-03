@@ -32,28 +32,28 @@ class StudmanController < ApplicationController
 
 	def index
 		reset_session
-        redirect_to action: 'login'
-    end
+		redirect_to action: 'login'
+	end
 
-    def login
+	def login
 
 		alertString = flash.alert
 		noticeString = flash.notice
 		reset_session
 
-	    if request.post?
+		if request.post?
 
 			noticeString = nil
 			alertString = nil
 
 			login_not_possible = false
 
-	        loginCode = params[:studman][:loginCode]
+			loginCode = params[:studman][:loginCode]
 			loginTeam = params[:studman][:loginTeam]
 			loginFirstname = params[:studman][:loginFirstname]
-	        loginevent_id = params[:studman][:loginevent_id]
+			loginevent_id = params[:studman][:loginevent_id]
 
-	        if loginevent_id == nil
+			if loginevent_id == nil
 				eventcollection = getEventCollectionbyStatus(true)
 				if eventcollection.length == 0
 					alertString = "Es sind aktuell keine Anlässe verfügbar!"
@@ -61,31 +61,31 @@ class StudmanController < ApplicationController
 				elsif eventcollection.length == 1
 					loginevent_id = eventcollection[0].id
 				end
-	        end
+			end
 			if !login_not_possible
-		        tempstudent = Student.new
+				tempstudent = Student.new
 				loginstudent = tempstudent.checkStudentLogin(loginevent_id, loginCode, loginTeam, loginFirstname)
 				if loginstudent != nil
-			        noticeString = "Anmeldung ist erfolgt!"
-			        session[:student_id] = loginstudent.id
-			        session[:student_email] = loginstudent.email
-			        session[:student_name] = loginstudent.name
-			        session[:student_firstname] = loginstudent.firstname
-			        session[:event_id] = loginevent_id
-			        session[:lastlogin] = Time.now.to_i
-			        tempteam = Team.new
-			        loginteam = tempteam.find_by_title(loginevent_id, loginTeam)
-			        session[:team_id] = loginteam.id
+					noticeString = "Anmeldung ist erfolgt!"
+					session[:student_id] = loginstudent.id
+					session[:student_email] = loginstudent.email
+					session[:student_name] = loginstudent.name
+					session[:student_firstname] = loginstudent.firstname
+					session[:event_id] = loginevent_id
+					session[:lastlogin] = Time.now.to_i
+					tempteam = Team.new
+					loginteam = tempteam.find_by_title(loginevent_id, loginTeam)
+					session[:team_id] = loginteam.id
 					redirect_to studman_overview_path, notice: noticeString, alert: alertString
-		        else
-			        alertString = "Die Angaben zur Anmeldung sind ungültig!"
-		        end
+				else
+					alertString = "Die Angaben zur Anmeldung sind ungültig!"
+				end
 			end
 			flash.alert = alertString
-	    else
-		    flash.alert = alertString
-		    flash.notice = noticeString
-	    end
+		else
+			flash.alert = alertString
+			flash.notice = noticeString
+		end
 	end
 
 	def overview
@@ -268,8 +268,8 @@ class StudmanController < ApplicationController
 	end
 
 	def logout
-        noticeString = "Sie wurden erfolgreich abgemeldet!"
-        redirect_to studman_login_path, notice: noticeString
-    end
+		noticeString = "Sie wurden erfolgreich abgemeldet!"
+		redirect_to studman_login_path, notice: noticeString
+	end
 
 end

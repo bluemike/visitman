@@ -1,6 +1,6 @@
 class Slot < ActiveRecord::Base
 
-	DAY_OF_WEEK_VALUES = [[0,"Sonntag"],[1,"Montag"],[2,"Dienstag"],[3,"Mittwoch"],[4,"Donnerstag"],[5,"Freitag"],[6,"Samstag"],[7,""]]
+	DAY_OF_WEEK_VALUES = [[0, "Sonntag"], [1, "Montag"], [2, "Dienstag"], [3, "Mittwoch"], [4, "Donnerstag"], [5, "Freitag"], [6, "Samstag"], [7, ""]]
 
 	belongs_to :event
 
@@ -38,7 +38,7 @@ class Slot < ActiveRecord::Base
 				slot_list << slot
 			end
 		end
-		get_slot_list_hash = {slot_date: slot_date, slot_list: slot_list, slot_datelist: slot_datelist }
+		get_slot_list_hash = {slot_date: slot_date, slot_list: slot_list, slot_datelist: slot_datelist}
 		return get_slot_list_hash
 	end
 

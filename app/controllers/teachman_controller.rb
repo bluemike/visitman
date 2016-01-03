@@ -31,27 +31,27 @@ class TeachmanController < ApplicationController
 
 	def index
 		reset_session
-        redirect_to action: 'login'
-    end
+		redirect_to action: 'login'
+	end
 
-    def login
+	def login
 
-	    alertString = flash.alert
-	    noticeString = flash.notice
-	    reset_session
+		alertString = flash.alert
+		noticeString = flash.notice
+		reset_session
 
-	    if request.post?
+		if request.post?
 
-		    noticeString = nil
-		    alertString = nil
+			noticeString = nil
+			alertString = nil
 
 			login_not_possible = false
 
-	        loginCode = params[:teachman][:loginCode]
-	        loginFirstname = params[:teachman][:loginFirstname]
-	        loginevent_id = params[:teachman][:loginevent_id]
+			loginCode = params[:teachman][:loginCode]
+			loginFirstname = params[:teachman][:loginFirstname]
+			loginevent_id = params[:teachman][:loginevent_id]
 
-	        if loginevent_id == nil
+			if loginevent_id == nil
 				eventcollection = getEventCollectionbyStatus(true)
 				if eventcollection.length == 0
 					alertString = "Es sind aktuell keine Anlässe verfügbar!"
@@ -59,29 +59,29 @@ class TeachmanController < ApplicationController
 				elsif eventcollection.length == 1
 					loginevent_id = eventcollection[0].id
 				end
-	        end
+			end
 			if !login_not_possible
-		        tempteacher = Teacher.new
+				tempteacher = Teacher.new
 				loginteacher = tempteacher.checkTeacherLogin(loginevent_id, loginCode, loginFirstname)
 				if loginteacher != nil
-			        noticeString = "Anmeldung ist erfolgt!"
-			        session[:teacher_id] = loginteacher.id
-			        session[:teacher_email] = loginteacher.email
-			        session[:teacher_name] = loginteacher.name
-			        session[:teacher_firstname] = loginteacher.firstname
-			        session[:teacher_room_title] = loginteacher.room_title
-			        session[:lastlogin] = Time.now.to_i
-			        session[:event_id] = loginevent_id
-			        redirect_to teachman_overview_path, notice: noticeString
-		        else
-			        alertString = "Die Angaben zur Anmeldung sind ungültig!"
-		        end
+					noticeString = "Anmeldung ist erfolgt!"
+					session[:teacher_id] = loginteacher.id
+					session[:teacher_email] = loginteacher.email
+					session[:teacher_name] = loginteacher.name
+					session[:teacher_firstname] = loginteacher.firstname
+					session[:teacher_room_title] = loginteacher.room_title
+					session[:lastlogin] = Time.now.to_i
+					session[:event_id] = loginevent_id
+					redirect_to teachman_overview_path, notice: noticeString
+				else
+					alertString = "Die Angaben zur Anmeldung sind ungültig!"
+				end
 
 			end
 			flash.alert = alertString
-	    else
-		    flash.alert = alertString
-		    flash.notice = noticeString
+		else
+			flash.alert = alertString
+			flash.notice = noticeString
 		end
 	end
 
@@ -341,8 +341,8 @@ class TeachmanController < ApplicationController
 	end
 
 	def logout
-        noticeString = "Sie wurden erfolgreich abgemeldet!"
-        redirect_to teachman_login_path, notice: noticeString
-    end
+		noticeString = "Sie wurden erfolgreich abgemeldet!"
+		redirect_to teachman_login_path, notice: noticeString
+	end
 
 end

@@ -16,7 +16,7 @@ class TeacherteamImportController < ApplicationController
 			redirect_to controller: 'login', action: 'login'
 			return
 		end
-		@teacherteams = Teacherteam.where("event_id=%d",getLoginEventId).all
+		@teacherteams = Teacherteam.where("event_id=%d", getLoginEventId).all
 	end
 
 	def delete_all_teacherteams
@@ -25,7 +25,7 @@ class TeacherteamImportController < ApplicationController
 			return
 		end
 
-		Teacherteam.destroy_all(["event_id = ?",getLoginEventId])
+		Teacherteam.destroy_all(["event_id = ?", getLoginEventId])
 		flash[:alert] = "Es wurden alle Lehrer-Klassenbeziehungen erfolgreich gelöscht!"
 		redirect_to action: 'index'
 	end
@@ -85,7 +85,7 @@ class TeacherteamImportController < ApplicationController
 					end
 				end
 
-				preview_entry = { abbreviation: abbreviation, team_title: team_title, status: status, message: message }
+				preview_entry = {abbreviation: abbreviation, team_title: team_title, status: status, message: message}
 				$teacherteam_import_preview_list.push(preview_entry)
 
 				num_teacherteams += 1

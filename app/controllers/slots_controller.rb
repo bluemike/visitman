@@ -16,7 +16,7 @@ class SlotsController < ApplicationController
 			return
 		end
 		event = Event.find(getLoginEventId)
-        @slot_start_String = ConvertToDateString(event.is_from_date)
+		@slot_start_String = ConvertToDateString(event.is_from_date)
 		@slot_end_String = ConvertToDateString(event.is_to_date)
 		@slot_duration_String = event.default_slot_duration
 		redirect_to action: 'show'
@@ -39,7 +39,7 @@ class SlotsController < ApplicationController
 			redirect_to controller: 'login', action: 'login'
 			return
 		end
-		Slot.delete_all(["event_id = ?",getLoginEventId])
+		Slot.delete_all(["event_id = ?", getLoginEventId])
 		flash[:alert] = "Es wurden alle Slots erfolgreich gelöscht!"
 		redirect_to action: 'show'
 

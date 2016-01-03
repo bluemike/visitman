@@ -218,7 +218,7 @@ class CockpitController < ApplicationController
 		colorArray = []
 		widthArray = []
 
-		header_entry = ["Lehrkraft","Zimmer","Bemerkung", "Reservationen"]
+		header_entry = ["Lehrkraft", "Zimmer", "Bemerkung", "Reservationen"]
 		dataArray << header_entry
 		colorArray << [nil, nil, nil, nil]
 		widthArray << [nil, nil, nil, nil]
@@ -234,7 +234,7 @@ class CockpitController < ApplicationController
 			numreservations = 0
 
 			slot_list.each do |slot|
-	       		reservations = Reservation.where(event_id: getLoginEventId, slot_id: slot.id, teacher_id: teacher.id)
+				reservations = Reservation.where(event_id: getLoginEventId, slot_id: slot.id, teacher_id: teacher.id)
 				if reservations.length > 0
 					if reservations[0].student_id != nil
 						numreservations += 1

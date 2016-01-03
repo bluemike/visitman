@@ -56,9 +56,7 @@
                                 <% student = Student.find(reservation.student_id) %>
                                 <% team = Team.find(student.team_id) %>
                                 <% student_string = "%s %s (%s)" % [student.firstname, student.name, team.title] %>
-                                <%= link_to "#", class: "has-tooltip", :data => {:toggle => "tooltip"}, 'data-original-title' => student_string, 'data-placement' => 'top' do %>
-                                    <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-                                <% end %>
+                                <a href "#", rel="tooltip", title="<%= student_string %>"><span class="glyphicon glyphicon-time" aria-hidden="true"></span></a>
                             </td>
                         <% else %>
                             <td class="<%= color_class %>"></td>

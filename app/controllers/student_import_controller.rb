@@ -14,7 +14,7 @@ class StudentImportController < ApplicationController
 		if !isLogin
 			redirect_to controller: 'login', action: 'login'
 		end
-		@students = Student.where("event_id=%d",getLoginEventId).includes(:team).all
+		@students = Student.where("event_id=%d", getLoginEventId).includes(:team).all
 	end
 
 	def delete_all_students
@@ -22,8 +22,8 @@ class StudentImportController < ApplicationController
 			redirect_to controller: 'login', action: 'login'
 		end
 
-		Student.destroy_all(["event_id = ?",getLoginEventId])
-		Team.destroy_all(["event_id = ?",getLoginEventId])
+		Student.destroy_all(["event_id = ?", getLoginEventId])
+		Team.destroy_all(["event_id = ?", getLoginEventId])
 		flash[:alert] = "Es wurden alle Schüler und Klassen erfolgreich gelöscht!"
 		redirect_to action: 'index'
 	end
@@ -71,7 +71,7 @@ class StudentImportController < ApplicationController
 
 				team = nil
 				if team_title != nil
-					team = Team.find_by_title(getLoginEventId,team_title)
+					team = Team.find_by_title(getLoginEventId, team_title)
 				end
 
 				if team_title == nil || team_title == ''
@@ -80,7 +80,7 @@ class StudentImportController < ApplicationController
 					message = "Klasse fehlt"
 				end
 
-				preview_entry = { name: name, firstname: firstname, email: email, team_title: team_title, status: status, message: message }
+				preview_entry = {name: name, firstname: firstname, email: email, team_title: team_title, status: status, message: message}
 				$student_import_preview_list.push(preview_entry)
 
 				num_students += 1
@@ -113,7 +113,7 @@ class StudentImportController < ApplicationController
 						student.code = student.getCode
 						student.changed_id = getLoginUserId
 
-						team = Team.find_by_title(getLoginEventId,preview_entry[:team_title])
+						team = Team.find_by_title(getLoginEventId, preview_entry[:team_title])
 						if team == nil
 							# create team
 							team = Team.new

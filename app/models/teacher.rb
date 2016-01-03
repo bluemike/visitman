@@ -1,6 +1,6 @@
 class Teacher < ActiveRecord::Base
 
-	SALT_VALUES = [["0","U"],["1","V"],["2","E"],["3","Y"],["4","Q"],["5","L"],["6","K"],["7","H"],["8","P"],["9","S"]]
+	SALT_VALUES = [["0", "U"], ["1", "V"], ["2", "E"], ["3", "Y"], ["4", "Q"], ["5", "L"], ["6", "K"], ["7", "H"], ["8", "P"], ["9", "S"]]
 
 	TEACHER_ROOM_OK = 0
 	TEACHER_ROOM_UNDEFINED = -1
@@ -13,10 +13,10 @@ class Teacher < ActiveRecord::Base
 
 	def self.to_csv
 		(CSV.generate(col_sep: ';', row_sep: "\n", headers: false) do |csv|
-			col_names = ["id","name","firstname","code","room"]
+			col_names = ["id", "name", "firstname", "code", "room"]
 			csv << col_names
 			all.each do |teacher|
-				csv << [teacher.id,teacher.name,teacher.firstname,teacher.code,teacher.room_title]
+				csv << [teacher.id, teacher.name, teacher.firstname, teacher.code, teacher.room_title]
 			end
 		end).encode('WINDOWS-1252', :undef => :replace, :replace => '')
 	end

@@ -6,6 +6,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap/bootstrap-tooltip
 //= require bootstrap
 //= require rainbow
 //= require ruby
@@ -15,3 +16,7 @@
 //= require bootstrap-datetimepicker
 //= require pickers
 //= require data-confirm-modal
+
+$(function(){
+    $("a[rel='tooltip']").tooltip();
+})

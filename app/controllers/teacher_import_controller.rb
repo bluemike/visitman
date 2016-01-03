@@ -14,7 +14,7 @@ class TeacherImportController < ApplicationController
 		if !isLogin
 			redirect_to controller: 'login', action: 'login'
 		end
-		@teachers = Teacher.where("event_id=%d",getLoginEventId).all
+		@teachers = Teacher.where("event_id=%d", getLoginEventId).all
 	end
 
 	def delete_all_teachers
@@ -22,7 +22,7 @@ class TeacherImportController < ApplicationController
 			redirect_to controller: 'login', action: 'login'
 		end
 
-		Teacher.destroy_all(["event_id = ?",getLoginEventId])
+		Teacher.destroy_all(["event_id = ?", getLoginEventId])
 		flash[:alert] = "Es wurden alle Lehrer erfolgreich gelöscht!"
 		redirect_to action: 'index'
 	end
@@ -79,7 +79,7 @@ class TeacherImportController < ApplicationController
 					team_title = ''
 				end
 
-				preview_entry = { name: name, firstname: firstname, abbreviation: abbreviation, room_title: room_title, email: email, team_title: team_title, status: status, message: message }
+				preview_entry = {name: name, firstname: firstname, abbreviation: abbreviation, room_title: room_title, email: email, team_title: team_title, status: status, message: message}
 				$teacher_import_preview_list.push(preview_entry)
 
 				num_teachers += 1
@@ -114,7 +114,7 @@ class TeacherImportController < ApplicationController
 						teacher.code = teacher.getCode
 						teacher.changed_id = getLoginUserId
 
-						team = Team.find_by_title(getLoginEventId,preview_entry[:team_title])
+						team = Team.find_by_title(getLoginEventId, preview_entry[:team_title])
 						team_id = nil
 						if team == nil && preview_entry[:team_title] != ''
 							# create team
