@@ -11,8 +11,8 @@
                         wrapper: :horizontal_form,
                         html: { class: 'form-horizontal' } do |f| %>
     <div class="control-group">
-        <%= f.button :submit, 'Lehrkraft ist an diesem Tag immer verfügbar', name: 'all_available', class: 'btn btn-sm btn-success', :wrapper_html => { :class => "inline_field_wrapper" } %>
-        <%= f.button :submit, 'Lehrkraft ist an diesem Tag NICHT verfügbar', name: 'all_not_available', class: 'btn btn-sm btn-danger', :wrapper_html => { :class => "inline_field_wrapper" } %>
+        <%= f.button :submit, 'Lehrkraft ist an diesem Tag IMMER verfügbar', name: 'all_available', class: 'btn btn-sm btn-info', :wrapper_html => { :class => "inline_field_wrapper" } %>
+        <%= f.button :submit, 'Lehrkraft ist an diesem Tag NICHT verfügbar', name: 'all_not_available', class: 'btn btn-sm btn-info', :wrapper_html => { :class => "inline_field_wrapper" } %>
     </div>
 
 <% end %>
@@ -22,9 +22,12 @@
 <table class="table table-bordered" valign="middle">
     <tr>
         <td>Legende</td>
-        <td class="active">Verfügbarkeit offen</td>
+        <% if !@availability_only %>
+          <td class="active">Verfügbarkeit offen</td>
+        <% end %>
         <td class="success">Lehrkraft verfügbar</td>
         <td class="danger">Lehrkraft <strong>NICHT</strong> verfügbar</td>
+        <td class="info">Lehrkraft verfügbar und bereits gebucht</td>
     </tr>
 </table>
 
@@ -57,17 +60,19 @@
 	        <% color_class = temp_reservation.getReservationAvailabilityColor availability_status %>
 	        <td class="<%= color_class %>"></td>
             <td>
-                <% if availability_status != Reservation::RESERVATION_AVAILABILITY_AVAILABLE %>
-                    <% link_url = "/teachman/manage_availability_availability_changed?slot_id=%d&new_availability=%d" % [slot.id, Reservation::RESERVATION_AVAILABILITY_AVAILABLE] %>
-                    <%= link_to "verfügbar", link_url, class: 'btn btn-sm btn-success' %>
-                <% end %>
-                <% if availability_status != Reservation::RESERVATION_AVAILABILITY_NOT_AVAILABLE %>
-                    <% link_url = "/teachman/manage_availability_availability_changed?slot_id=%d&new_availability=%d" % [slot.id, Reservation::RESERVATION_AVAILABILITY_NOT_AVAILABLE] %>
-                    <%= link_to "NICHT verfügbar", link_url, class: 'btn btn-sm btn-danger' %>
-                <% end %>
-                <% if availability_status != Reservation::RESERVATION_AVAILABILITY_OPEN %>
-                    <% link_url = "/teachman/manage_availability_availability_changed?slot_id=%d&new_availability=%d" % [slot.id, Reservation::RESERVATION_AVAILABILITY_OPEN] %>
-                    <%= link_to "offen", link_url, class: 'btn btn-sm btn-default' %>
+                <% if availability_status != Reservation::RESERVATION_AVAILABILITY_BOOKED %>
+                  <% if availability_status != Reservation::RESERVATION_AVAILABILITY_AVAILABLE %>
+                      <% link_url = "/teachman/manage_availability_availability_changed?slot_id=%d&new_availability=%d" % [slot.id, Reservation::RESERVATION_AVAILABILITY_AVAILABLE] %>
+                      <%= link_to "verfügbar", link_url, class: 'btn btn-sm btn-info' %>
+                  <% end %>
+                  <% if availability_status != Reservation::RESERVATION_AVAILABILITY_NOT_AVAILABLE %>
+                      <% link_url = "/teachman/manage_availability_availability_changed?slot_id=%d&new_availability=%d" % [slot.id, Reservation::RESERVATION_AVAILABILITY_NOT_AVAILABLE] %>
+                      <%= link_to "NICHT verfügbar", link_url, class: 'btn btn-sm btn-info' %>
+                  <% end %>
+                  <% if !@availability_only && availability_status != Reservation::RESERVATION_AVAILABILITY_OPEN %>
+                      <% link_url = "/teachman/manage_availability_availability_changed?slot_id=%d&new_availability=%d" % [slot.id, Reservation::RESERVATION_AVAILABILITY_OPEN] %>
+                      <%= link_to "offen", link_url, class: 'btn btn-sm btn-info' %>
+                  <% end %>
                 <% end %>
             </td>
         </tr>

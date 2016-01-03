@@ -78,6 +78,7 @@ class ReservationSimulatorController < ApplicationController
 								check_reservations3 = Reservation.where(event_id: getLoginEventId, slot_id: slot.id, teacher_id: teacher.id)
 								if (check_reservations1.length == 0) && (check_reservations2.length == 0) && (check_reservations3.length == 0)
 									reservation.student_id = student.id
+									reservation.status = Reservation::RESERVATION_AVAILABILITY_BOOKED
 									break
 								end
 							end

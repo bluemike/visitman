@@ -2,6 +2,10 @@ class Teacher < ActiveRecord::Base
 
 	SALT_VALUES = [["0","U"],["1","V"],["2","E"],["3","Y"],["4","Q"],["5","L"],["6","K"],["7","H"],["8","P"],["9","S"]]
 
+	TEACHER_ROOM_OK = 0
+	TEACHER_ROOM_UNDEFINED = -1
+	TEACHER_ROOM_MULTIPLE = 1
+
 	belongs_to :event
 	belongs_to :team
 
@@ -44,6 +48,75 @@ class Teacher < ActiveRecord::Base
 			code << SALT_VALUES[SecureRandom.random_number(10)][1]
 		end
 		return "%s-%s" % [identifier, code]
+	end
+
+	def getRoomStatus
+
+		if room_title == nil || room_title == ""
+			return TEACHER_ROOM_UNDEFINED
+		end
+		teacher_list = Teacher.where(event_id: event_id)
+
+		multiple = false
+		teacher_list.each do |teacher|
+			if teacher.id != id && teacher.room_title == room_title
+				multiple = true
+			end
+		end
+		status = multiple ? TEACHER_ROOM_MULTIPLE : TEACHER_ROOM_OK
+		return status
+
+	end
+
+	def getRoomComment
+
+		comment = ""
+
+		if room_title == nil || room_title == ""
+			return comment
+		end
+		teacher_list = Teacher.where(event_id: event_id)
+
+		teacher_room_multiple = false
+		teacher_list.each do |teacher|
+			if teacher.id != id && teacher.room_title == room_title
+				multiple = true
+				if comment == ""
+					comment = "%s" % [teacher.abbreviation]
+				else
+					comment = "%s, %s" % [comment, teacher.abbreviation]
+				end
+			end
+		end
+
+		return comment
+
+	end
+
+	def getRoomStatusColor status
+		color = "active"
+		if status == TEACHER_ROOM_OK
+			color = "success"
+		elsif status == TEACHER_ROOM_UNDEFINED
+			color = "danger"
+		elsif status == TEACHER_ROOM_MULTIPLE
+			color = "warning"
+		end
+		return color
+	end
+
+	def getRoomStatusPrintColor status
+
+		color = "FFFFFF"
+		if status == TEACHER_ROOM_OK
+			color = "DFF0D8"
+		elsif status == TEACHER_ROOM_UNDEFINED
+			color = "F2DEDE"
+		elsif status == TEACHER_ROOM_MULTIPLE
+			color = "F0AD4E"
+		end
+		return color
+
 	end
 
 end

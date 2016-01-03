@@ -1,0 +1,67 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">Zimmer-Zuweisung</h2>
+  </div>
+  <div class="panel-body">
+
+    <p>&nbsp;</p>
+
+    <%= simple_form_for :teachman_manage_room, url: '/teachman/manage_room_changed',
+                    wrapper: :horizontal_form,
+                    html: { class: 'form-horizontal' } do |f| %>
+
+        <%= f.input :room_title, label: 'Zimmer', placeholder: 'X999', input_html: { value: @room_title, maxlength: 5, style: 'width: 300px' }, required: false %>
+
+
+          <div class="row">
+            <div class="col-md-3">
+              &nbsp;
+              </div>
+            <div class="col-md-9">
+              <%= f.button :submit, 'Zimmer zuweisen', class: 'btn btn-info' %>
+            </div>
+          </div>
+
+    <% end %>
+
+<p>&nbsp;</p>
+
+<table class="table table-bordered table-striped" valign="middle">
+  <thead>
+  <tr>
+    <th>Lehrkraft</th>
+    <th>Zimmer</th>
+    <th>Bemerkungen</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr>
+    <td><strong><%= @firstnamename %></strong></td>
+    <% tempteacher = Teacher.new %>
+    <td class="<%= tempteacher.getRoomStatusColor @room_status %>">
+      <strong><%= @room_title %></strong>
+    </td>
+    <td ><%= @room_comment %></td>
+  </tr>
+  </tbody>
+
+</table>
+
+<table class="table table-bordered table_striped" valign="middle">
+  <tr>
+    <td>Legende</td>
+    <td class="danger">KEIN Zimmer zugewiesen</td>
+    <td class="success">Zimmer eindeutig zugewiesen</td>
+    <td class="warning">Zimmer ist MEHREREN Lehrkräften zugewiesen</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+<%= link_to teachman_overview_path, class: 'btn btn-sm btn-primary' do %>
+    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Zurück zur Übersicht
+<% end %>
+
+    <p>&nbsp;</p>
+  </div>
+</div>

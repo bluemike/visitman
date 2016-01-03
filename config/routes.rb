@@ -64,6 +64,8 @@ Rails.application.routes.draw do
   get 'cockpit/view_teacher_room_reservations', to: 'cockpit#view_teacher_room_reservations'
   post 'cockpit/view_teacher_room_reservations_slot_date_changed', to: 'cockpit#view_teacher_room_reservations_slot_date_changed'
   get 'cockpit/print_teacher_reservations', to: 'cockpit#print_teacher_reservations'
+  get 'cockpit/print_student_reservations', to: 'cockpit#print_student_reservations'
+  get 'cockpit/print_teacher_room_reservations', to: 'cockpit#print_teacher_room_reservations'
 
   get 'login', to: 'login#login'
   post 'login/login', to: 'login#login'
@@ -80,8 +82,13 @@ Rails.application.routes.draw do
   post 'teachman/manage_availability_availability_changed', to: 'teachman#manage_availability_availability_changed'
   get 'teachman/view_reservations', to: 'teachman#view_reservations'
   post 'teachman/view_reservations_slot_date_changed', to: 'teachman#view_reservations_slot_date_changed'
+  get 'teachman/print_reservations', to: 'teachman#print_reservations'
   get 'teachman/view_teamteachers', to: 'teachman#view_teamteachers'
+  get 'teachman/print_teamteachers', to: 'teachman#print_teamteachers'
   get 'teachman/view_teamstudents', to: 'teachman#view_teamstudents'
+  get 'teachman/print_teamstudents', to: 'teachman#print_teamstudents'
+  get 'teachman/manage_room', to: 'teachman#manage_room'
+  post 'teachman/manage_room_changed', to: 'teachman#manage_room_changed'
 
   get 'studman', to: 'studman#login'
   get 'studman/login', to: 'studman#login'
@@ -94,9 +101,16 @@ Rails.application.routes.draw do
   get 'studman/manage_reservations_reservation_cancel', to: 'studman#manage_reservations_reservation_cancel'
   get 'studman/view_reservations', to: 'studman#view_reservations'
   post 'studman/view_reservations_slot_date_changed', to: 'studman#view_reservations_slot_date_changed'
+  get 'studman/print_reservations', to: 'studman#print_reservations'
 
+  get 'availability_preset', to: 'availability_preset#index'
+  get 'availability_preset/index', to: 'availability_preset#index'
+  post 'availability_preset/execute', to: 'availability_preset#execute'
+  
   get 'reservation_simulator', to: 'reservation_simulator#index'
   get 'reservation_simulator/index', to: 'reservation_simulator#index'
   post 'reservation_simulator/execute', to: 'reservation_simulator#execute'
+
+
 
 end

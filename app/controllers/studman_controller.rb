@@ -6,7 +6,7 @@ class StudmanController < ApplicationController
 
 	def checkLogin
 		if !checkStudmanLogin
-			alertString = "Seit der letzten Anmeldung ist zuviel Zeit ohne Aktivität vergangen. Bitte melden Sie sich nochmals an!"
+			alertString = "Seit der letzten Anmeldung ist zuviel Zeit ohne Aktivität vergangen. Bitte melden Sie sich erneut an!"
 			flash.alert = alertString
 			redirect_to action: 'login'
 			return false
@@ -72,7 +72,7 @@ class StudmanController < ApplicationController
 			        session[:student_name] = loginstudent.name
 			        session[:student_firstname] = loginstudent.firstname
 			        session[:event_id] = loginevent_id
-			        session[:lastlogin] = Time.now
+			        session[:lastlogin] = Time.now.to_i
 			        tempteam = Team.new
 			        loginteam = tempteam.find_by_title(loginevent_id, loginTeam)
 			        session[:team_id] = loginteam.id
@@ -156,10 +156,12 @@ class StudmanController < ApplicationController
 				if reservations.length != 0
 					reservation = reservations[0]
 					if reservation.student_id == nil
+						# check to be added to make sure this student really is part of the team where this teacher is teaching
 						check_reservations1 = Reservation.where(event_id: getStudmanLoginEventId, slot_id: slot_id, student_id: getStudmanLoginId)
 						check_reservations2 = Reservation.where(event_id: getStudmanLoginEventId, teacher_id: teacher_id, student_id: getStudmanLoginId)
 						if (check_reservations1.length == 0) && (check_reservations2.length == 0)
 							reservation.student_id = getStudmanLoginId
+							reservation.status = Reservation::RESERVATION_AVAILABILITY_BOOKED
 							if reservation.save
 								noticeString = "Der Termin konnte erfolgreich reserviert werden!"
 								alertString = ""
@@ -250,6 +252,19 @@ class StudmanController < ApplicationController
 		@slot_list = get_slot_list_hash[:slot_list]
 		@slot_datelist = get_slot_list_hash[:slot_datelist]
 		session[:slot_date] = @slot_date
+	end
+
+	def print_reservations
+		if !checkLogin
+			return
+		end
+
+		temp_slot = Slot.new
+		get_slot_list_hash = temp_slot.getSlotList getStudmanLoginEventId, session[:slot_date]
+		slot_date = get_slot_list_hash[:slot_date]
+		slot_list = get_slot_list_hash[:slot_list]
+
+		printStudentReservations getStudmanLoginEventId, getStudmanLoginId, slot_date, slot_list
 	end
 
 	def logout

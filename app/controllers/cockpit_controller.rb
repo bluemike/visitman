@@ -87,93 +87,21 @@ class CockpitController < ApplicationController
 	end
 
 	def print_teacher_reservations
+
 		if !isLogin
 			redirect_to controller: 'login', action: 'login'
 			return
 		end
-		@teacher_id = session[:view_teacher_reservations_teacher_id]
-		@slot_date = session[:view_teacher_reservations_slot_date]
+
+		teacher_id = session[:view_teacher_reservations_teacher_id]
+		slot_date = session[:view_teacher_reservations_slot_date]
 		temp_slot = Slot.new
 		get_slot_list_hash = temp_slot.getSlotList getLoginEventId, @slot_date
-		@slot_date = get_slot_list_hash[:slot_date]
-		@slot_list = get_slot_list_hash[:slot_list]
-		@slot_datelist = get_slot_list_hash[:slot_datelist]
+		slot_date = get_slot_list_hash[:slot_date]
+		slot_list = get_slot_list_hash[:slot_list]
 
-		pdf = Prawn::Document.new
-
-		pdf.image "#{Rails.root}/app/assets/images/schoolfrick.png", at: [0,750]
-		pdf.draw_text "Elterngespräche 2015", size: 24, style: :bold, at: [250,680]
-
-		teacher = Teacher.find(@teacher_id)
-
-		pdf.move_down 80
-		temp_slot = Slot.new
-		pdf.text "%s" % [temp_slot.getNiceDateonlywithDayofWeekString(@slot_date.to_date)], size: 16, style: :bold
-		pdf.text "%s %s (%s) im Zimmer %s" % [teacher.firstname, teacher.name, teacher.abbreviation, teacher.room_title], size: 16, style: :bold
-		pdf.move_down 40
-
-		data = []
-		reservation_status = []
-
-        header_entry = ["von","bis","Reservation"]
-        data << header_entry
-		reservation_status << "nil"
-
-        last_to_datetime = nil
-        @slot_list.each do |slot|
-            from_datetime = slot.from_time
-            to_datetime = slot.to_time
-
-            if last_to_datetime != nil && last_to_datetime!= from_datetime
-
-            end
-            last_to_datetime = to_datetime
-
-            temp_reservation = Reservation.new
-            reservations = Reservation.where(event_id: getLoginEventId, teacher_id: @teacher_id, slot_id: slot.id)
-            student_string = ""
-            if reservations.length > 0
-	            reservation = reservations[0]
-	            status = reservation.status
-	            if reservation.student_id != nil
-		            student = Student.find(reservation.student_id)
-		            team = Team.find(student.team_id)
-		            student_string = "%s %s (%s)" % [student.firstname, student.name, team.title]
-					status = Reservation::RESERVATION_AVAILABILITY_BOOKED
-	            end
-				reservation_status << status
-            end
-
-            row_entry = []
-	        row_entry << getNiceTimeString(from_datetime)
-	        row_entry << getNiceTimeString(to_datetime)
-	        row_entry << student_string
-	        data << row_entry
-
-        end
-
-		pdf.table data do
-			style(row(0), font_style: :bold)
-			style(column(2), font_style: :bold)
-			i = 0
-			while i < row_length  do
-				if i == 0
-					style(row(i), background_color: "FFFFFF")
-				else
-					if i.odd?
-						style(row(i), background_color: "F0F0F0")
-					end
-					temp_reservation = Reservation.new
-					style(row(i).column(2), background_color: temp_reservation.getReservationAvailabilityPrintColor(reservation_status[i]))
-				end
-				i += 1
-			end
-		end
-
-		send_data pdf.render, :filename => "x.pdf", :type => "application/pdf"
-
+		printTeacherReservations getLoginEventId, teacher_id, slot_date, slot_list
 	end
-
 
 
 	def view_student_reservations_slot_date_changed
@@ -235,6 +163,18 @@ class CockpitController < ApplicationController
 
 	end
 
+	def print_student_reservations
+
+		student_id = session[:view_student_reservations_student_id]
+		slot_date = session[:view_student_reservations_slot_date]
+		temp_slot = Slot.new
+		get_slot_list_hash = temp_slot.getSlotList getLoginEventId, slot_date
+		slot_date = get_slot_list_hash[:slot_date]
+		slot_list = get_slot_list_hash[:slot_list]
+
+		printStudentReservations getLoginEventId, student_id, slot_date, slot_list
+	end
+
 	def view_teacher_room_reservations_slot_date_changed
 		if !isLogin
 			redirect_to controller: 'login', action: 'login'
@@ -259,6 +199,62 @@ class CockpitController < ApplicationController
 		@teachers = Teacher.where(event_id: getLoginEventId).order(abbreviation: :asc)
 	end
 
+	def print_teacher_room_reservations
+
+		temp_slot = Slot.new
+		get_slot_list_hash = temp_slot.getSlotList getLoginEventId, session[:slot_date]
+		slot_date = get_slot_list_hash[:slot_date]
+		slot_list = get_slot_list_hash[:slot_list]
+
+		teachers = Teacher.where(event_id: getLoginEventId).order(abbreviation: :asc)
+		event = Event.find(getLoginEventId)
+
+		temp_slot = Slot.new
+		eventString = event.title
+		dateString = temp_slot.getNiceDateonlywithDayofWeekString(slot_date.to_date)
+		titleString = "Zimmer-Belegungsplan"
+
+		dataArray = []
+		colorArray = []
+		widthArray = []
+
+		header_entry = ["Lehrkraft","Zimmer","Bemerkung", "Reservationen"]
+		dataArray << header_entry
+		colorArray << [nil, nil, nil, nil]
+		widthArray << [nil, nil, nil, nil]
+
+		teachers.each do |teacher|
+
+			firstnamename = "%s %s (%s)" % [teacher.firstname, teacher.name, teacher.abbreviation]
+
+			room_comment = teacher.getRoomComment
+			room_status = teacher.getRoomStatus
+			room_status_color = teacher.getRoomStatusPrintColor room_status
+
+			numreservations = 0
+
+			slot_list.each do |slot|
+	       		reservations = Reservation.where(event_id: getLoginEventId, slot_id: slot.id, teacher_id: teacher.id)
+				if reservations.length > 0
+					if reservations[0].student_id != nil
+						numreservations += 1
+					end
+				end
+			end
+
+			reservation_description = numreservations > 0 ? "%d Reservationen" : "keine Reservationen"
+			tempreservation = Reservation.new
+			reservation_status = numreservations > 0 ? Reservation::RESERVATION_AVAILABILITY_BOOKED : Reservation::RESERVATION_AVAILABILITY_NOT_AVAILABLE
+			reservation_status_color = tempreservation.getReservationAvailabilityPrintColor reservation_status
+
+			dataArray << [firstnamename, teacher.room_title, room_comment, reservation_description]
+			colorArray << [nil, room_status_color, nil, reservation_status_color]
+
+		end
+
+		displayPDF eventString, dateString, titleString, dataArray, colorArray, widthArray
+
+	end
 
 
 end

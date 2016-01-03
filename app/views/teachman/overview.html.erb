@@ -26,6 +26,31 @@
 	            </tr>
 	        </table>
         </a>
+      <% if checkRegDate %>
+          <a href="<%= teachman_manage_room_path %>" class="list-group-item">
+      <% else %>
+          <a href="#" class="list-group-item disabled">
+      <% end %>
+      <table>
+        <tr>
+          <td valign="middle">
+            <% if checkRegDate %>
+                <h3><span class="glyphicon glyphicon-circle-arrow-right text-info"></span></h3>
+            <% else %>
+                <h3><span class="glyphicon glyphicon-remove-circle text-danger"></span></h3>
+            <% end %>
+          </td>
+          <td>&nbsp;&nbsp;&nbsp;</td>
+          <td>
+            <h4 class="list-group-item-heading">Zimmer-Zuweisung</h4>
+            <p class="list-group-item-text">Hier gibst du an, in welchem Zimmer du die Eltern empfängst.</p>
+            <% if !checkRegDate %>
+                <span class="text-danger"><strong>Diese Funktion steht aktuell nicht zur Verfügung!</strong></span>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+      </a>
         <a href="<%= teachman_view_reservations_path %>" class="list-group-item">
             <table>
                 <tr>
@@ -34,7 +59,7 @@
                     </td>
                     <td>&nbsp;&nbsp;&nbsp;</td>
                     <td>
-                        <h4 class="list-group-item-heading">Reservation</h4>
+                        <h4 class="list-group-item-heading">Reservationen</h4>
                         <p class="list-group-item-text">Hier kannst du einsehen, wer sich bereits angemeldet hat.</p>
                     </td>
                 </tr>

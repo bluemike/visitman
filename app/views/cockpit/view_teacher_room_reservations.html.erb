@@ -13,9 +13,10 @@
 
         <thead>
         <tr>
-            <th>Lehrkraft</th>
-            <th>Zimmer</th>
-	        <th>Reservationen</th>
+          <th>Lehrkraft</th>
+          <th>Zimmer</th>
+	        <th>Bemerkungen</th>
+          <th>Reservationen</th>
         </tr>
         </thead>
 
@@ -23,9 +24,20 @@
 
 	        <% @teachers.each do |teacher| %>
 	            <% firstnamename = "%s %s" % [teacher.firstname, teacher.name] %>
-	            <tr>
-	                <td><strong><%= firstnamename %> (<%= teacher.abbreviation %>)</strong></td>
-		            <td><strong><%= teacher.room_title %></strong></td>
+
+              <tr>
+
+                <td><strong><%= firstnamename %> (<%= teacher.abbreviation %>)</strong></td>
+
+                <% room_comment = teacher.getRoomComment %>
+                <% room_status = teacher.getRoomStatus %>
+                <td class="<%= teacher.getRoomStatusColor room_status %>">
+                  <strong><%= teacher.room_title %></strong>
+                </td>
+                <td>
+                  <strong><%= room_comment %></strong>
+                </td>
+
 		            <% numreservations = 0 %>
 	                <% @slot_list.each do |slot| %>
 	                    <% reservations = Reservation.where(event_id: getLoginEventId, slot_id: slot.id, teacher_id: teacher.id) %>
@@ -35,22 +47,28 @@
 				            <% end %>
 	                    <% end %>
 			        <% end %>
-		            <% tempreservation = Reservation.new %>
-		            <% if numreservations > 0 %>
-	                    <td class="<%= tempreservation.getReservationAvailabilityColor Reservation::RESERVATION_AVAILABILITY_BOOKED %>">
-			                <strong><%= numreservations %> Reservation(en)</strong>
-			            </td>
+              <% tempreservation = Reservation.new %>
+              <% if numreservations > 0 %>
+                    <td class="<%= tempreservation.getReservationAvailabilityColor Reservation::RESERVATION_AVAILABILITY_BOOKED %>">
+                    <strong><%= numreservations %> Reservation(en)</strong>
+                </td>
 			        <% else %>
 	                    <td class="<%= tempreservation.getReservationAvailabilityColor Reservation::RESERVATION_AVAILABILITY_NOT_AVAILABLE %>">
 	                        <strong>keine Reservationen</strong>
 	                    </td>
 			        <% end %>
-				</tr>
-            <% end %>
+
+              </tr>
+          <% end %>
         </tbody>
 
     </table>
 </div>
+
+<p>&nbsp;</p>
+<%= link_to cockpit_print_teacher_room_reservations_path, class: 'btn btn-sm btn-primary' do %>
+    <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Seite drucken
+<% end %>
 
 <p>&nbsp;</p>
 <%= link_to cockpit_path, class: 'btn btn-sm btn-primary' do %>

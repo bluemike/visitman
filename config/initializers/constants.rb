@@ -1,1 +1,1 @@
-ROWSperPAGE = 5
+ROWSperPAGE = 10

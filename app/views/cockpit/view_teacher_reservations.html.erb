@@ -2,8 +2,8 @@
                     wrapper: :horizontal_form,
                     html: { class: 'form-horizontal' } do |f| %>
 
-    <%= f.input :teacher_id, selected: @teacher_id, collection: @teacher_list, label: false, input_html: { style: 'width: 200px', onchange: 'this.form.submit()' }, required: false  %>
-    <%= f.input :slot_date, selected: @slot_date, collection: @slot_datelist, label: false, input_html: { style: 'width: 200px', onchange: 'this.form.submit()' }, required: false  %>
+    <%= f.input :teacher_id, selected: @teacher_id, collection: @teacher_list, label: false, input_html: { style: 'width: 300px', onchange: 'this.form.submit()' }, required: false  %>
+    <%= f.input :slot_date, selected: @slot_date, collection: @slot_datelist, label: false, input_html: { style: 'width: 300px', onchange: 'this.form.submit()' }, required: false  %>
     <%= token_tag nil %>
 
 <% end %>

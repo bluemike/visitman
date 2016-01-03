@@ -2,7 +2,7 @@
                     wrapper: :horizontal_form,
                     html: { class: 'form-horizontal' } do |f| %>
 
-    <%= f.input :slot_date, selected: @slot_date, collection: @slot_datelist, label: false, input_html: { style: 'width: 200px', onchange: 'this.form.submit()' }, required: false  %>
+    <%= f.input :slot_date, selected: @slot_date, collection: @slot_datelist, label: false, input_html: { style: 'width: 300px', onchange: 'this.form.submit()' }, required: false  %>
     <%= token_tag nil %>
 
 <% end %>
@@ -58,6 +58,12 @@
 
 </table>
 
+<p>&nbsp;</p>
+<%= link_to cockpit_print_student_reservations_path, class: 'btn btn-sm btn-primary' do %>
+    <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Seite drucken
+<% end %>
+
+<p>&nbsp;</p>
 <%= link_to cockpit_select_student_reservations_path, class: 'btn btn-sm btn-primary' do %>
     <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Zurück zur Übersicht
 <% end %>
