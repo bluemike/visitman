@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1006476e-ec79-4ed7-a313-d2f1d81c0753" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/cache/assets/development/sass/edfb21a1fee47235fec9591e07247973b2893e54/application.css.scssc" afterPath="$PROJECT_DIR$/tmp/cache/assets/development/sass/edfb21a1fee47235fec9591e07247973b2893e54/application.css.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/cache/assets/development/sprockets/8ab512c9b33ac90e699b73469d71f061" afterPath="$PROJECT_DIR$/tmp/cache/assets/development/sprockets/8ab512c9b33ac90e699b73469d71f061" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/cache/assets/development/sprockets/bcca522c6302f184f12fe0e8a7d7e71a" afterPath="$PROJECT_DIR$/tmp/cache/assets/development/sprockets/bcca522c6302f184f12fe0e8a7d7e71a" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/cache/assets/development/sprockets/c13fc73ceafa45876a901b3e775b83ae" afterPath="$PROJECT_DIR$/tmp/cache/assets/development/sprockets/c13fc73ceafa45876a901b3e775b83ae" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/studman_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/studman_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/cockpit/_view_statistics.html.erb" afterPath="$PROJECT_DIR$/app/views/cockpit/_view_statistics.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/pids/server.pid" afterPath="$PROJECT_DIR$/tmp/pids/server.pid" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/reservation_simulator_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/reservation_simulator_controller.rb" />
     </list>
     <ignored path="visitman.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -59,21 +53,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="studman_controller.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="studman_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/studman_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2992611">
+            <state vertical-scroll-proportion="-9.0">
               <caret line="201" column="25" selection-start-line="201" selection-start-column="25" selection-end-line="201" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="reservation_simulator_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/reservation_simulator_controller.rb">
+      <file leaf-file-name="reservation.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/reservation.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="78" column="101" selection-start-line="78" selection-start-column="101" selection-end-line="78" selection-end-column="101" />
+              <caret line="47" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reservation_simulator_controller.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/reservation_simulator_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.3921335">
+              <caret line="65" column="76" selection-start-line="65" selection-start-column="76" selection-end-line="65" selection-end-column="76" />
               <folding />
             </state>
           </provider>
@@ -108,7 +112,6 @@
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/config/initializers/simple_form_components.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/teachman.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/reservation_simulator_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/teachman/overview.html.erb" />
         <option value="$PROJECT_DIR$/app/views/teachman/manage_availability.html.erb" />
         <option value="$PROJECT_DIR$/app/views/teachman/manage_room.erb" />
@@ -122,6 +125,7 @@
         <option value="$PROJECT_DIR$/app/controllers/events_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/cockpit/_view_statistics.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/studman_controller.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/reservation_simulator_controller.rb" />
       </list>
     </option>
   </component>
@@ -734,7 +738,13 @@
       <option name="project" value="LOCAL" />
       <updated>1451836508900</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Fixed problems with reservation.status on canceled &#10;">
+      <created>1452197017854</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1452197017854</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView">
@@ -787,7 +797,8 @@
     <MESSAGE value="Rakefile changed (wrong App name)" />
     <MESSAGE value="Complete overhaul of teachman and partial revamp of admin part" />
     <MESSAGE value="Reformatted Source Code&#10;Fixed Tooltips" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reformatted Source Code&#10;Fixed Tooltips" />
+    <MESSAGE value="Fixed problems with reservation.status on canceled &#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed problems with reservation.status on canceled &#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -992,14 +1003,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/reservation.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/teachman/view_reservations.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.625">
@@ -1198,14 +1201,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/reservation_simulator_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="78" column="101" selection-start-line="78" selection-start-column="101" selection-end-line="78" selection-end-column="101" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/cockpit/_view_statistics.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-23.958334">
@@ -1216,8 +1211,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/studman_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2992611">
+        <state vertical-scroll-proportion="-9.0">
           <caret line="201" column="25" selection-start-line="201" selection-start-column="25" selection-end-line="201" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/reservation.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="47" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/reservation_simulator_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3921335">
+          <caret line="65" column="76" selection-start-line="65" selection-start-column="76" selection-end-line="65" selection-end-column="76" />
           <folding />
         </state>
       </provider>

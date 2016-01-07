@@ -51,18 +51,23 @@ class ReservationSimulatorController < ApplicationController
 			teachers = Teacher.where(event_id: getLoginEventId)
 			teachers.each do |teacher|
 
-				reservation = Reservation.new
-				reservation.teacher_id = teacher.id
-				reservation.slot_id = slot.id
-				reservation.event_id = getLoginEventId
-				reservation.changed_id = getLoginUserId
-				random_percentage = SecureRandom.random_number(100)
-				if (random_percentage <= @max_availabilities)
-					reservation.status = Reservation::RESERVATION_AVAILABILITY_AVAILABLE
+				reservations = Reservation.where(event_id: getLoginEventId, teacher_id: teacher.id, slot_id: slot.id)
+				if (reservations.length > 0)
+					reservation = reservations[0]
 				else
-					reservation.status = Reservation::RESERVATION_AVAILABILITY_NOT_AVAILABLE
+					reservation = Reservation.new
+					reservation.teacher_id = teacher.id
+					reservation.slot_id = slot.id
+					reservation.event_id = getLoginEventId
+					reservation.changed_id = getLoginUserId
+					reservation.student_id = nil
+					random_percentage = SecureRandom.random_number(100)
+					if (random_percentage <= @max_availabilities)
+						reservation.status = Reservation::RESERVATION_AVAILABILITY_AVAILABLE
+					else
+						reservation.status = Reservation::RESERVATION_AVAILABILITY_NOT_AVAILABLE
+					end
 				end
-
 				if reservation.status == Reservation::RESERVATION_AVAILABILITY_AVAILABLE
 					random_percentage = SecureRandom.random_number(100)
 					if (random_percentage <= @max_reservations)
