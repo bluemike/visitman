@@ -82,7 +82,7 @@
       </tr>
       <% num_reservations = Reservation.where(event_id: getLoginEventId).where.not(student_id: nil).count %>
       <% if (max_reservations != 0) && (num_availabilities_available != 0) %>
-          <% num_reservations_percent = (100 * num_reservations / max_reservations).to_s %>
+          <% num_reservations_percent = (100 * num_availabilities_available / max_reservations).to_s %>
           <% num_reservations_effective_percent = (100 * num_reservations / num_availabilities_available).to_s %>
       <% else %>
           <% num_reservations_percent = "n/a" %>
@@ -99,7 +99,7 @@
       <tr>
         <td></td>
         <td class="<%= temp_reservation.getReservationAvailabilityColor Reservation::RESERVATION_AVAILABILITY_BOOKED %>">eff.
-          möglich
+          getätigt
         </td>
         <td><strong><%= num_reservations %></strong></td>
         <td><strong><%= num_reservations_effective_percent %>%</strong></td>
