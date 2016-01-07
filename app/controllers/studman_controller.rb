@@ -208,6 +208,7 @@ class StudmanController < ApplicationController
 					reservation = reservations[0]
 					if reservation.student_id == getStudmanLoginId
 						reservation.student_id = nil
+						reservation.status = Reservation::RESERVATION_AVAILABILITY_AVAILABLE
 						if reservation.save
 							noticeString = "Die Reservation konnte erfolgreich rückgängig gemacht werden!"
 							alertString = ""
