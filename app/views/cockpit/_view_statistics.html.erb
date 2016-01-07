@@ -81,8 +81,8 @@
         <td><strong><%= num_availabilities_not_available_percent %>%</strong></td>
       </tr>
       <% num_reservations_effective = Reservation.where(event_id: getLoginEventId).where.not(student_id: nil).count %>
-      <% if (max_reservations != 0) && (num_availabilities_available != 0) %>
-          <% num_reservations_effective_percent = (100 * num_reservations / num_availabilities_available).to_s %>
+      <% if (num_availabilities_available != 0) %>
+          <% num_reservations_effective_percent = (100 * num_reservations_effective / num_availabilities_available).to_s %>
       <% else %>
           <% num_reservations_effective_percent = "n/a" %>
       <% end %>

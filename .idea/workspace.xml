@@ -46,8 +46,8 @@
       <file leaf-file-name="_view_statistics.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/cockpit/_view_statistics.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.72392637">
-              <caret line="101" column="50" selection-start-line="101" selection-start-column="50" selection-end-line="101" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.39263803">
+              <caret line="83" column="12" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -774,7 +774,13 @@
       <option name="project" value="LOCAL" />
       <updated>1452199431242</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Statistics fixed">
+      <created>1452199684956</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1452199684956</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TodoView">
@@ -829,7 +835,8 @@
     <MESSAGE value="Reformatted Source Code&#10;Fixed Tooltips" />
     <MESSAGE value="Fixed problems with reservation.status on canceled &#10;" />
     <MESSAGE value="fixed simulator if reservations exist" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed simulator if reservations exist" />
+    <MESSAGE value="Statistics fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Statistics fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1258,8 +1265,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/cockpit/_view_statistics.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.72392637">
-          <caret line="101" column="50" selection-start-line="101" selection-start-column="50" selection-end-line="101" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.39263803">
+          <caret line="83" column="12" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="12" />
           <folding />
         </state>
       </provider>
