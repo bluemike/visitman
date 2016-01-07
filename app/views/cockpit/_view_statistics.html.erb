@@ -36,11 +36,11 @@
       </tr>
       <% max_reservations = num_teachers * num_slots %>
       <% num_availabilities = Reservation.where(event_id: getLoginEventId).count %>
+      <% num_availabilities_open = Reservation.where(event_id: getLoginEventId, status: Reservation::RESERVATION_AVAILABILITY_OPEN).count %>
       <% num_availabilities_available = Reservation.where(event_id: getLoginEventId, status: Reservation::RESERVATION_AVAILABILITY_AVAILABLE).count %>
       <% num_availabilities_not_available = Reservation.where(event_id: getLoginEventId, status: Reservation::RESERVATION_AVAILABILITY_NOT_AVAILABLE).count %>
       <% num_availabilities_booked = Reservation.where(event_id: getLoginEventId, status: Reservation::RESERVATION_AVAILABILITY_BOOKED).count %>
-      <% num_availabilities_available += num_availabilities_booked
-      <% num_availabilities_open = (max_reservations - num_availabilities_available - num_availabilities_not_available - num_availabilities_booked) %>
+      <% num_availabilities_available += num_availabilities_booked %>
 
       <% max_reservations_percent = "100" %>
       <% num_availabilities_available_percent = "n/a" %>
