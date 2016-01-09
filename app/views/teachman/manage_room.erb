@@ -10,7 +10,7 @@
                     wrapper: :horizontal_form,
                     html: { class: 'form-horizontal' } do |f| %>
 
-        <%= f.input :room_title, label: 'Zimmer', placeholder: 'X999', input_html: { value: @room_title, maxlength: 5, style: 'width: 300px' }, required: false %>
+        <%= f.input :room_title, label: 'Zimmer', placeholder: 'X999', input_html: { value: @room_title, maxlength: 5, style: 'width: 300px', autofocus: true }, required: false %>
 
 
           <div class="row">

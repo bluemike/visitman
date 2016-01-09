@@ -81,7 +81,7 @@ class CockpitController < ApplicationController
 		@teacher_id = session[:view_teacher_reservations_teacher_id]
 		@teacher_list = getTeacherCollectionbyEventId(getLoginEventId)
 		if @teacher_id == nil && @teacher_list.length > 0
-			@teacher_id = @teacher_list[0][0]
+			@teacher_id = @teacher_list[0][1]
 		end
 		session[:view_teacher_reservations_teacher_id] = @teacher_id
 	end
