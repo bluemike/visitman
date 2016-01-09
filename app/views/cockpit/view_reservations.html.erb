@@ -1,74 +1,77 @@
 <%= simple_form_for :view_reservations, url: '/cockpit/view_reservations_slot_date_changed', remote: true,
                     wrapper: :horizontal_form,
-                    html: { class: 'form-horizontal' } do |f| %>
+                    html: {class: 'form-horizontal'} do |f| %>
 
-    <%= f.input :slot_date, selected: @slot_date, collection: @slot_datelist, label: false, input_html: { style: 'width: 200px', onchange: 'this.form.submit()' }, required: false  %>
+    <%= f.input :slot_date, selected: @slot_date, collection: @slot_datelist, label: false, input_html: {style: 'width: 200px', onchange: 'this.form.submit()'}, required: false %>
     <%= token_tag nil %>
 
 <% end %>
 
 <table class="table table-bordered" valign="middle">
-    <tr>
-        <td>Legende</td>
-	    <td class="info"> <span class="glyphicon glyphicon-time" aria-hidden="true"></span> Reservation erfolgt</td>
-        <td class="active">Verfügbarkeit noch offen</td>
-        <td class="success">Lehrkraft verfügbar</td>
-        <td class="danger">Lehrkraft <strong>NICHT</strong> verfügbar</td>
-    </tr>
+  <tr>
+    <td>Legende</td>
+    <td class="info"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Reservation erfolgt</td>
+    <td class="active">Verfügbarkeit noch offen</td>
+    <td class="success">Lehrkraft verfügbar</td>
+    <td class="danger">Lehrkraft <strong>NICHT</strong> verfügbar</td>
+  </tr>
 </table>
 
 <div class="table-scrollable">
 
-    <table class="table table-striped table-bordered" valign="middle">
+  <table class="table table-striped table-bordered" valign="middle">
 
-        <thead>
-        <tr>
-            <th>von</th>
-            <th>bis</th>
-            <% @teachers.each do |teacher| %>
-                <% firstnamename = "%s %s" % [teacher.firstname, teacher.name] %>
-                <th><%= link_to teacher.abbreviation, "#", class: "has-tooltip", :data => {:toggle => "tooltip"}, 'data-original-title' => firstnamename, 'data-placement' => 'top'%></th>
-            <% end %>
-        </tr>
-        </thead>
+    <thead>
+    <tr>
+      <th>von</th>
+      <th>bis</th>
+      <% @teachers.each do |teacher| %>
+          <% firstnamename = "%s %s" % [teacher.firstname, teacher.name] %>
+          <th><a href "#", rel="tooltip", title="<%= firstnamename %>"><%= teacher.abbreviation %></th>
+      <% end %>
+    </tr>
+    </thead>
 
-        <tbody>
-        <% last_to_datetime = nil %>
-        <% @slot_list.each do |slot| %>
-            <% from_datetime = slot.from_time %>
-            <% to_datetime = slot.to_time %>
-            <% if last_to_datetime != nil && last_to_datetime!= from_datetime %>
-                <tr><td colspan="<%= (@teachers.length+2).to_s %>"></td></tr>
-            <% end %>
-            <% last_to_datetime = to_datetime %>
+    <tbody>
+    <% last_to_datetime = nil %>
+    <% @slot_list.each do |slot| %>
+        <% from_datetime = slot.from_time %>
+        <% to_datetime = slot.to_time %>
+        <% if last_to_datetime != nil && last_to_datetime!= from_datetime %>
             <tr>
-                <td><%= getNiceTimeString(from_datetime) %></td>
-                <td><%= getNiceTimeString(to_datetime) %></td>
-                <% @teachers.each do |teacher| %>
-                    <% reservations = Reservation.where(event_id: getLoginEventId, slot_id: slot.id, teacher_id: teacher.id) %>
-                    <% if reservations.length == 0 %>
-                        <td class="active"></td>
-                    <% else %>
-                        <% reservation = reservations[0] %>
-                        <% color_class = reservation.getReservationAvailabilityColor reservation.status %>
-			            <% if reservation.student_id != nil %>
-                            <td class="<%= reservation.getReservationAvailabilityColor Reservation::RESERVATION_AVAILABILITY_BOOKED %>">
-                                <% student = Student.find(reservation.student_id) %>
-                                <% team = Team.find(student.team_id) %>
-                                <% student_string = "%s %s (%s)" % [student.firstname, student.name, team.title] %>
-                                <a href "#", rel="tooltip", title="<%= student_string %>"><span class="glyphicon glyphicon-time" aria-hidden="true"></span></a>
-                            </td>
-                        <% else %>
-                            <td class="<%= color_class %>"></td>
-				        <% end %>
-                    <% end %>
-                <% end %>
+              <td colspan="<%= (@teachers.length+2).to_s %>"></td>
             </tr>
         <% end %>
+        <% last_to_datetime = to_datetime %>
+        <tr>
+          <td><%= getNiceTimeString(from_datetime) %></td>
+          <td><%= getNiceTimeString(to_datetime) %></td>
+          <% @teachers.each do |teacher| %>
+              <% reservations = Reservation.where(event_id: getLoginEventId, slot_id: slot.id, teacher_id: teacher.id) %>
+              <% if reservations.length == 0 %>
+                  <td class="active"></td>
+              <% else %>
+                  <% reservation = reservations[0] %>
+                  <% color_class = reservation.getReservationAvailabilityColor reservation.status %>
+                  <% if reservation.student_id != nil %>
+                      <td class="<%= reservation.getReservationAvailabilityColor Reservation::RESERVATION_AVAILABILITY_BOOKED %>">
+                        <% student = Student.find(reservation.student_id) %>
+                        <% team = Team.find(student.team_id) %>
+                        <% student_string = "%s %s (%s)" % [student.firstname, student.name, team.title] %>
+                        <a href "#", rel="tooltip", title="<%= student_string %>
+                        "><span class="glyphicon glyphicon-time" aria-hidden="true"></span></a>
+                      </td>
+                  <% else %>
+                      <td class="<%= color_class %>"></td>
+                  <% end %>
+              <% end %>
+          <% end %>
+        </tr>
+    <% end %>
 
-        </tbody>
+    </tbody>
 
-    </table>
+  </table>
 </div>
 
 <p>&nbsp;</p>
