@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1006476e-ec79-4ed7-a313-d2f1d81c0753" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/studman/manage_reservations.html.erb" afterPath="$PROJECT_DIR$/app/views/studman/manage_reservations.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/pids/server.pid" afterPath="$PROJECT_DIR$/tmp/pids/server.pid" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/studman_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/studman_controller.rb" />
     </list>
     <ignored path="visitman.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,10 +63,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="manage_reservations.html.erb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="manage_reservations.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/studman/manage_reservations.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.34969324">
+            <state vertical-scroll-proportion="-11.875">
               <caret line="19" column="9" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
               <folding />
             </state>
@@ -94,11 +93,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="studman_controller.rb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="studman_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/studman_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-46.22222">
-              <caret line="201" column="25" selection-start-line="201" selection-start-column="25" selection-end-line="201" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.5578818">
+              <caret line="163" column="133" selection-start-line="163" selection-start-column="133" selection-end-line="163" selection-end-column="133" />
               <folding />
             </state>
           </provider>
@@ -162,13 +161,13 @@
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" />
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/events_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/studman_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/reservation_simulator_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/cockpit/_view_statistics.html.erb" />
         <option value="$PROJECT_DIR$/vendor/sql_transfer_script.sh" />
         <option value="$PROJECT_DIR$/app/views/cockpit/view_student_reservations.html.erb" />
         <option value="$PROJECT_DIR$/app/views/cockpit/view_reservations.html.erb" />
         <option value="$PROJECT_DIR$/app/views/studman/manage_reservations.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/studman_controller.rb" />
       </list>
     </option>
   </component>
@@ -889,7 +888,13 @@
       <option name="project" value="LOCAL" />
       <updated>1452337247645</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="studman beautified&#10;">
+      <created>1452337556767</created>
+      <option name="number" value="00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1452337556767</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TodoView">
@@ -946,7 +951,8 @@
     <MESSAGE value="fixed simulator if reservations exist" />
     <MESSAGE value="Statistics fixed" />
     <MESSAGE value="Studman beautified, additional tooltips fixed&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Studman beautified, additional tooltips fixed&#10;" />
+    <MESSAGE value="studman beautified&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="studman beautified&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1325,14 +1331,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/studman_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-46.22222">
-          <caret line="201" column="25" selection-start-line="201" selection-start-column="25" selection-end-line="201" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/reservation_simulator_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1375,8 +1373,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/studman/manage_reservations.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34969324">
+        <state vertical-scroll-proportion="-11.875">
           <caret line="19" column="9" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/studman_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5578818">
+          <caret line="163" column="133" selection-start-line="163" selection-start-column="133" selection-end-line="163" selection-end-column="133" />
           <folding />
         </state>
       </provider>
