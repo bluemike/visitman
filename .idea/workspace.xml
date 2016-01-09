@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1006476e-ec79-4ed7-a313-d2f1d81c0753" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sql_transfer_script.sh" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/cockpit/_view_statistics.html.erb" afterPath="$PROJECT_DIR$/app/views/cockpit/_view_statistics.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/cockpit/view_reservations.html.erb" afterPath="$PROJECT_DIR$/app/views/cockpit/view_reservations.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/cockpit/view_student_reservations.html.erb" afterPath="$PROJECT_DIR$/app/views/cockpit/view_student_reservations.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/studman/manage_reservations.html.erb" afterPath="$PROJECT_DIR$/app/views/studman/manage_reservations.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/pids/server.pid" afterPath="$PROJECT_DIR$/tmp/pids/server.pid" />
     </list>
     <ignored path="visitman.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -67,11 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="manage_reservations.html.erb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="manage_reservations.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/studman/manage_reservations.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.5">
-              <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.34969324">
+              <caret line="19" column="9" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -87,10 +84,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="view_reservations.html.erb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="view_reservations.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/cockpit/view_reservations.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.42331287">
+            <state vertical-scroll-proportion="-14.375">
               <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
               <folding />
             </state>
@@ -169,9 +166,9 @@
         <option value="$PROJECT_DIR$/app/controllers/reservation_simulator_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/cockpit/_view_statistics.html.erb" />
         <option value="$PROJECT_DIR$/vendor/sql_transfer_script.sh" />
-        <option value="$PROJECT_DIR$/app/views/studman/manage_reservations.html.erb" />
         <option value="$PROJECT_DIR$/app/views/cockpit/view_student_reservations.html.erb" />
         <option value="$PROJECT_DIR$/app/views/cockpit/view_reservations.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/studman/manage_reservations.html.erb" />
       </list>
     </option>
   </component>
@@ -886,7 +883,13 @@
       <option name="project" value="LOCAL" />
       <updated>1452199899554</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Studman beautified, additional tooltips fixed&#10;">
+      <created>1452337247645</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1452337247645</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView">
@@ -942,7 +945,8 @@
     <MESSAGE value="Fixed problems with reservation.status on canceled &#10;" />
     <MESSAGE value="fixed simulator if reservations exist" />
     <MESSAGE value="Statistics fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Statistics fixed" />
+    <MESSAGE value="Studman beautified, additional tooltips fixed&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Studman beautified, additional tooltips fixed&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1353,14 +1357,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/studman/manage_reservations.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.5">
-          <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/cockpit/view_student_reservations.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.875">
@@ -1371,8 +1367,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/cockpit/view_reservations.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42331287">
+        <state vertical-scroll-proportion="-14.375">
           <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/studman/manage_reservations.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34969324">
+          <caret line="19" column="9" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
           <folding />
         </state>
       </provider>
