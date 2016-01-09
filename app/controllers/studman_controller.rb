@@ -160,7 +160,7 @@ class StudmanController < ApplicationController
 						check_reservations1 = Reservation.where(event_id: getStudmanLoginEventId, slot_id: slot_id, student_id: getStudmanLoginId)
 						check_reservations2 = Reservation.where(event_id: getStudmanLoginEventId, teacher_id: teacher_id, student_id: getStudmanLoginId)
 						student = Student.find(getStudmanLoginId)
-						check_reservations3 = TeacherTeam.where(event_id: getStudmanLoginEventId, teacher_id: teacher.id, team_id: student.team_id)
+						check_reservations3 = Teacherteam.where(event_id: getStudmanLoginEventId, teacher_id: teacher_id, team_id: student.team_id)
 						if (check_reservations1.length == 0) && (check_reservations2.length == 0) && (check_reservations3.length > 0)
 							reservation.student_id = getStudmanLoginId
 							reservation.status = Reservation::RESERVATION_AVAILABILITY_BOOKED
