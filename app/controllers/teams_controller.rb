@@ -48,12 +48,10 @@ class TeamsController < ApplicationController
 			return
 		end
 		@team = Team.new(team_params)
+		@team = getLoginEventId
+		@team.changed_id = getLoginUserId
 		respond_to do |format|
 			if @team.save
-				if isLogin
-					@team.changed_id = getLoginUserId
-					@team.save
-				end
 				format.html { redirect_to @team, notice: 'Die Klasse wurde erfolgreich eröffnet.' }
 				format.json { render :show, status: :created, location: @team }
 			else
@@ -71,11 +69,8 @@ class TeamsController < ApplicationController
 			return
 		end
 		respond_to do |format|
+			@team.changed_id = getLoginUserId
 			if @team.update(team_params)
-				if isLogin
-					@team.changed_id = getLoginUserId
-					@team.save
-				end
 				format.html { redirect_to @team, notice: 'Die Klasse wurde erfolgreich gespeichert.' }
 				format.json { render :show, status: :ok, location: @team }
 			else

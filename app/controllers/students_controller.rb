@@ -47,14 +47,11 @@ class StudentsController < ApplicationController
 			return
 		end
 		@student = Student.new(student_params)
+		@student.code = @student.getCode
+		@student.event_id = getLoginEventId
+		@student.changed_id = getLoginUserId
 		respond_to do |format|
 			if @student.save
-				if isLogin
-					@student.code = @student.getCode
-					@student.event_id = getLoginEventId
-					@student.changed_id = getLoginUserId
-					@student.save
-				end
 				format.html { redirect_to @student, notice: 'Der Schüler wurde erfolgreich eröffnet.' }
 				format.json { render :show, status: :created, location: @student }
 			else
@@ -72,11 +69,8 @@ class StudentsController < ApplicationController
 			return
 		end
 		respond_to do |format|
+			@student.changed_id = getLoginUserId
 			if @student.update(student_params)
-				if isLogin
-					@student.changed_id = getLoginUserId
-					@student.save
-				end
 				format.html { redirect_to @student, notice: 'Der Schüler wurde erfolgreich gespeichert.' }
 				format.json { render :show, status: :ok, location: @student }
 			else

@@ -48,13 +48,11 @@ class TeachersController < ApplicationController
 			return
 		end
 		@teacher = Teacher.new(teacher_params)
+		@teacher.event_id = getLoginEventId
+		@teacher.code = @teacher.getCode
+		@teacher.changed_id = getLoginUserId
 		respond_to do |format|
 			if @teacher.save
-				if isLogin
-					@teacher.code = @teacher.getCode
-					@teacher.changed_id = getLoginUserId
-					@teacher.save
-				end
 				format.html { redirect_to @teacher, notice: 'Der Lehrer wurde erfolgreich eröffnet.' }
 				format.json { render :show, status: :created, location: @teacher }
 			else
@@ -72,11 +70,8 @@ class TeachersController < ApplicationController
 			return
 		end
 		respond_to do |format|
+			@teacher.changed_id = getLoginUserId
 			if @teacher.update(teacher_params)
-				if isLogin
-					@teacher.changed_id = getLoginUserId
-					@teacher.save
-				end
 				format.html { redirect_to @teacher, notice: 'Der Lehrer wurde erfolgreich gespeichert.' }
 				format.json { render :show, status: :ok, location: @teacher }
 			else
