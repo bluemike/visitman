@@ -15,7 +15,9 @@
 
     <p>&nbsp;</p>
 
-    <%= f.button :submit, 'Lehrer prüfen', name: 'check', class: 'btn btn-primary' %>
+    <!-- <%= f.button :submit, 'Lehrer prüfen', name: 'check', class: 'btn btn-primary' %> -->
+
+    <%= f.button :button, 'Lehrer prüfen'.html_safe, name: 'check', class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Lehrer werden geprüft ..."} %>
 
 <% end %>
 

@@ -15,6 +15,8 @@ class StudentExportController < ApplicationController
 		send_data @students.to_csv,
 				  type: 'text/csv; header=present',
 				  disposition: "attachment; filename=students.csv"
+
+		return
 	end
 
 end

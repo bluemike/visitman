@@ -51,6 +51,7 @@ class StudentsController < ApplicationController
 			if @student.save
 				if isLogin
 					@student.code = @student.getCode
+					@student.event_id = getLoginEventId
 					@student.changed_id = getLoginUserId
 					@student.save
 				end

@@ -59,6 +59,8 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.8)
     execjs (2.6.0)
+    font-awesome-rails (4.5.0.0)
+      railties (>= 3.2, < 5.0)
     foreigner (1.7.4)
       activerecord (>= 3.0.0)
     hike (1.2.3)
@@ -153,6 +155,7 @@ DEPENDENCIES
   charlock_holmes_bundle_icu
   data-confirm-modal!
   datetimepicker-rails!
+  font-awesome-rails
   foreigner
   jquery-rails
   json
