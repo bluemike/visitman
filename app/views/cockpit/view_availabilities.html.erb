@@ -25,8 +25,8 @@
         <th>von</th>
         <th>bis</th>
         <% @teachers.each do |teacher| %>
-            <% firstnamename = "%s %s" % [teacher.firstname, teacher.name] %>
-            <th><%= link_to teacher.abbreviation, "#", class: "has-tooltip", :data => {:toggle => "tooltip"}, 'data-original-title' => firstnamename, 'data-placement' => 'top'%></th>
+          <% firstnamename = "%s %s" % [teacher.firstname, teacher.name] %>
+          <th><a href "#", rel="tooltip", title="<%= firstnamename %>"><%= teacher.abbreviation %></th>
         <% end %>
     </tr>
     </thead>

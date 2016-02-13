@@ -413,7 +413,7 @@ class ApplicationController < ActionController::Base
 			student_string = ""
 			status = nil
 
-			reservations = Reservation.where(event_id: getLoginEventId, teacher_id: @teacher_id, slot_id: slot.id)
+			reservations = Reservation.where(event_id: event_id, teacher_id: teacher_id, slot_id: slot.id)
 			if reservations.length > 0
 				reservation = reservations[0]
 				status = reservation.status
