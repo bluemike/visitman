@@ -4,8 +4,8 @@ development:
   encoding: unicode
   database: visitman
   pool: 5
-  username: postgres
-  password: gurus
+  username: mike
+  password:
 
 test:
    adapter: postgresql

@@ -36,8 +36,8 @@ class TeacherteamImportController < ApplicationController
 			return
 		end
 
-		require 'csv'
-		require 'charlock_holmes'
+		require 'rchardet'
+		require 'acsv'
 
 		status = true
 		num_teacherteams = 0
@@ -48,11 +48,10 @@ class TeacherteamImportController < ApplicationController
 
 			$teacherteam_import_preview_list = []
 
-			content = params["teacherteam"]["file"].read
-			detection = CharlockHolmes::EncodingDetector.detect(content)
-			utf8_encoded_content = CharlockHolmes::Converter.convert content, detection[:encoding], 'UTF-8'
+			content = params["teacherteam"]["file"].read.to_s
+			content = content.force_encoding('iso8859-1').encode('utf-8')
 
-			CSV.parse(utf8_encoded_content, headers: false, col_sep: ';').each do |row|
+			ACSV::CSV.parse(content, headers: false) do |row|
 
 				if !status
 					has_errors = true

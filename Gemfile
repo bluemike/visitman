@@ -21,7 +21,10 @@ gem 'momentjs-rails'
 gem 'datetimepicker-rails', :git => 'git://github.com/zpaulovics/datetimepicker-rails.git', :branch => 'master', :submodules => true
 gem 'data-confirm-modal', github: 'ifad/data-confirm-modal'
 
-gem 'charlock_holmes_bundle_icu'
+# gem 'charlock_holmes'
+gem 'rchardet'
+gem 'acsv'
+
 gem 'nokogiri'
 gem 'builder'
 gem 'foreigner'

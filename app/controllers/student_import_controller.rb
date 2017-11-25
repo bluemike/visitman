@@ -33,13 +33,13 @@ class StudentImportController < ApplicationController
 			redirect_to controller: 'login', action: 'login'
 		end
 
-		require 'csv'
-		require 'charlock_holmes'
+		require 'rchardet'
+		require 'acsv'
 
 		status = true
 		num_students = 0
 		num_teams = 0
-		num_groups = 0
+		has_errors = false
 
 		has_errors = false
 
@@ -47,11 +47,10 @@ class StudentImportController < ApplicationController
 
 			$student_import_preview_list = []
 
-			content = params["student"]["file"].read
-			detection = CharlockHolmes::EncodingDetector.detect(content)
-			utf8_encoded_content = CharlockHolmes::Converter.convert content, detection[:encoding], 'UTF-8'
+			content = params["student"]["file"].read.to_s
+			content = content.force_encoding('iso8859-1').encode('utf-8')
 
-			CSV.parse(utf8_encoded_content, headers: false, col_sep: ';').each do |row|
+			ACSV::CSV.parse(content, headers: false) do |row|
 
 				if !status
 					has_errors = true

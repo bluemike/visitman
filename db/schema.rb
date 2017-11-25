@@ -137,4 +137,5 @@ ActiveRecord::Schema.define(version: 20150117101441) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
+  Foreigner.load
 end
