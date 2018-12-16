@@ -49,7 +49,7 @@ class TeacherteamImportController < ApplicationController
 			$teacherteam_import_preview_list = []
 
 			content = params["teacherteam"]["file"].read.to_s
-			content = content.force_encoding('iso8859-1').encode('utf-8')
+			content = content.force_encoding('utf-8').encode('utf-8')
 
 			ACSV::CSV.parse(content, headers: false) do |row|
 

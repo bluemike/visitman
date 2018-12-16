@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1006476e-ec79-4ed7-a313-d2f1d81c0753" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/production.rb" afterPath="$PROJECT_DIR$/config/environments/production.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/teacher_import_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/teacher_import_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/teacherteam_import_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/teacherteam_import_controller.rb" />
     </list>
     <ignored path="visitman.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,10 +63,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="production.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="production.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
+            <state relative-caret-position="435">
               <caret line="29" column="31" lean-forward="false" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
               <folding />
             </state>
@@ -105,8 +106,8 @@
       <file leaf-file-name="teacher_import_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/teacher_import_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1164">
-              <caret line="130" column="0" lean-forward="false" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
+            <state relative-caret-position="169">
+              <caret line="48" column="45" lean-forward="false" selection-start-line="48" selection-start-column="45" selection-end-line="48" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -122,11 +123,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="teacherteam_import_controller.rb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="teacherteam_import_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/teacherteam_import_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+            <state relative-caret-position="320">
+              <caret line="51" column="45" lean-forward="false" selection-start-line="51" selection-start-column="45" selection-end-line="51" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -193,11 +194,11 @@
         <option value="$PROJECT_DIR$/app/views/layouts/studman.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/teachman.html.erb" />
         <option value="$PROJECT_DIR$/config/database.yml" />
-        <option value="$PROJECT_DIR$/app/controllers/teacherteam_import_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/teacher_import_controller.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/controllers/student_import_controller.rb" />
         <option value="$PROJECT_DIR$/config/environments/production.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/teacher_import_controller.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/teacherteam_import_controller.rb" />
       </list>
     </option>
   </component>
@@ -578,7 +579,7 @@
       <option name="presentableId" value="Default" />
       <updated>1449301048155</updated>
       <workItem from="1511563043052" duration="8466000" />
-      <workItem from="1544971173870" duration="1268000" />
+      <workItem from="1544971173870" duration="1627000" />
     </task>
     <task id="LOCAL-00001" summary="test commit">
       <created>1449308500458</created>
@@ -769,11 +770,18 @@
       <option name="project" value="LOCAL" />
       <updated>1544991321943</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="corrected Gemfile to rails -v 4.2.5.1 based on github automatic messages">
+      <created>1544992385120</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1544992385120</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9734000" />
+    <option name="totallyTimeSpent" value="10093000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1159,26 +1167,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/teacherteam_import_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/student_import/_student_import_preview.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/teacher_import_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1164">
-          <caret line="130" column="0" lean-forward="false" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1232,8 +1224,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
+        <state relative-caret-position="435">
           <caret line="29" column="31" lean-forward="false" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/teacher_import_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="48" column="45" lean-forward="false" selection-start-line="48" selection-start-column="45" selection-end-line="48" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/teacherteam_import_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="51" column="45" lean-forward="false" selection-start-line="51" selection-start-column="45" selection-end-line="51" selection-end-column="45" />
           <folding />
         </state>
       </provider>
