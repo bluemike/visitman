@@ -58,15 +58,18 @@ class TeacherteamImportController < ApplicationController
 				end
 
 				abbreviation = row[0]
+				abbreviation = abbreviation.squish!
 				team_title = row[1]
+				team_title = team_title.squish!
 				status = true
 				message = ""
+				### abbreviation = 'Sto' --> Offensichtlich ein Import-Problem (Zusatzzeile in XLS)
 
 				if abbreviation == nil || abbreviation == ''
 					status = false
 					message = "Kurzform fehlt"
 				else
-					temp_teachers = Teacher.where(event_id: getLoginEventId, abbreviation: abbreviation)
+					temp_teachers = Teacher.where(event_id: getLoginEventId).where('abbreviation LIKE ?', abbreviation)
 					if temp_teachers.length == 0
 						status = false
 						message = "Kurzform ungültig"
@@ -115,11 +118,18 @@ class TeacherteamImportController < ApplicationController
 						temp_teachers = Teacher.where(event_id: getLoginEventId, abbreviation: preview_entry[:abbreviation])
 						teacher = temp_teachers[0]
 						team = Team.find_by_title(getLoginEventId, preview_entry[:team_title])
+
 						teacherteam.teacher_id = teacher.id
 						teacherteam.team_id = team.id
 						teacherteam.changed_id = getLoginUserId
-						if teacherteam.save
-							num_teacherteams += 1
+
+						temp_teacherteams = Teacherteam.where(event_id: getLoginEventId, team_id: team.id, teacher_id: teacher.id)
+						if temp_teacherteams.length == 0
+							if teacherteam.save
+								num_teacherteams += 1
+							end
+						else
+								num_teacherteams += 1
 						end
 					end
 				end
