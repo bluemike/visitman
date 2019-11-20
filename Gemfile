@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
-ruby '2.2.3'
+ruby '2.5.7'
 
-gem 'rails', '~> 4.2.5.1'
+gem 'rails'
 
 gem 'json'
 gem 'thin'
@@ -32,5 +32,6 @@ gem 'foreigner'
 gem 'prawn'
 gem 'prawn-table'
 
-gem 'pg'
+gem 'pg', '~> 0.20'
 gem 'rails_12factor'
+
