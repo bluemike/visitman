@@ -55,9 +55,9 @@ GEM
     arel (6.0.4)
     autoprefixer-rails (9.7.2)
       execjs
-    bootstrap-sass (3.3.5)
-      autoprefixer-rails (>= 5.0.0.1)
-      sass (>= 3.2.19)
+    bootstrap-sass (3.4.1)
+      autoprefixer-rails (>= 5.2.1)
+      sassc (>= 2.0.0)
     bootstrap-tooltip-rails (0.1)
       rails (>= 3.1)
       thor
@@ -68,6 +68,7 @@ GEM
     erubis (2.7.0)
     eventmachine (1.2.7)
     execjs (2.7.0)
+    ffi (1.11.2)
     font-awesome-rails (4.7.0.5)
       railties (>= 3.2, < 6.1)
     foreigner (1.7.4)
@@ -142,6 +143,8 @@ GEM
       sass (~> 3.2.2)
       sprockets (~> 2.8, < 3.0)
       sprockets-rails (~> 2.0)
+    sassc (2.2.1)
+      ffi (~> 1.9)
     simple_form (3.1.1)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
@@ -175,7 +178,7 @@ PLATFORMS
 
 DEPENDENCIES
   acsv
-  bootstrap-sass (~> 3.3.0)
+  bootstrap-sass (~> 3.4.1)
   bootstrap-tooltip-rails
   builder
   data-confirm-modal!
