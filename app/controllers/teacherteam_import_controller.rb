@@ -88,9 +88,15 @@ class TeacherteamImportController < ApplicationController
 				end
 
 				preview_entry = {abbreviation: abbreviation, team_title: team_title, status: status, message: message}
-				$teacherteam_import_preview_list.push(preview_entry)
 
-				num_teacherteams += 1
+				if ($teacherteam_import_preview_list.include?(preview_entry))
+					status = false
+					message = "Eintrag existiert schon"
+				else
+					$teacherteam_import_preview_list.push(preview_entry)
+					num_teacherteams += 1
+				end
+
 
 			end
 
